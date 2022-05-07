@@ -4,17 +4,17 @@ import SafeAreaComp from "../Components/SafeAreaComp";
 import CustomAuthBtn from "../Components/CustomAuthBtn";
 import { secColor } from "../AppColors";
 import { w, h } from "react-native-responsiveness";
-const FailedScreen = () => {
-  const mainmsg = "Something went\nwrong";
+const RegistrationSuccess = () => {
+  const msg = "Registration\nCompleted";
   return (
     <SafeAreaComp>
       <View style={styles.maindiv}>
         <Image
-          source={require("../../assets/error.png")}
+          source={require("../../assets/success.png")}
           style={styles.imgShow}
         />
-        <Text style={styles.maintxt}>{mainmsg}</Text>
-        <Text style={styles.desctxt}>Can you please try again?</Text>
+        <Text style={styles.maintxt}>{msg}</Text>
+
         <CustomAuthBtn
           bgColor={secColor}
           title="Ok"
@@ -25,7 +25,7 @@ const FailedScreen = () => {
   );
 };
 
-export default FailedScreen;
+export default RegistrationSuccess;
 
 const styles = StyleSheet.create({
   imgShow: {
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     fontSize: h("4%"),
     fontWeight: "bold",
     textAlign: "center",
-    marginVertical: h("2%"),
+    marginVertical: h("3%"),
   },
   desctxt: {
     fontSize: h("2.2%"),

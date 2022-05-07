@@ -1,26 +1,41 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
 import { Feather, Zocial } from "@expo/vector-icons";
-import { inputBg, mainColor } from "../AppColors";
+import { inputBg, mainColor, stopColor } from "../AppColors";
 import { w, h } from "react-native-responsiveness";
-const CustomInput = ({ iconName, placeholder, value, onChange }) => {
+const CustomInput = ({
+  title,
+  placeholder,
+  onChange,
+  onBlur,
+  error,
+  ...otherProps
+}) => {
   return (
-    <View style={styles.customInptdiv}>
-      {iconName && (
-        <Zocial name={`${iconName}`} size={h("3%")} color={mainColor} />
-      )}
+    <View
+      style={{
+        ...styles.customInptdiv,
+        borderColor: error ? stopColor : "#94A3BE",
+      }}
+    >
+      <Text
+        style={{ ...styles.titletxt, color: error ? stopColor : "#202442" }}
+      >
+        {title}
+      </Text>
       <TextInput
         style={{
           ...styles.custminp,
-          width: iconName ? "86%" : "100%",
-          paddingHorizontal: iconName ? 0 : 10,
+          width: "100%",
+          paddingHorizontal: 10,
         }}
-        value={value}
         onChangeText={onChange}
         placeholder={`${placeholder}`}
         autoCapitalize="none"
         autoCorrect={false}
         autoComplete="off"
+        onBlur={onBlur}
+        {...otherProps}
       />
     </View>
   );
@@ -32,16 +47,19 @@ const styles = StyleSheet.create({
   customInptdiv: {
     width: w("88%"),
     borderRadius: h("1%"),
-    backgroundColor: inputBg,
-    height: h("6%"),
+    height: h("8%"),
     display: "flex",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    flexDirection: "column",
     alignSelf: "center",
+    borderBottomWidth: 1,
   },
   custminp: {
-    height: "100%",
-    backgroundColor: "transparent",
+    height: h("5%"),
+  },
+  titletxt: {
+    fontSize: h("1.7%"),
+    textTransform: "capitalize",
   },
 });

@@ -8,7 +8,7 @@ import {
 import React, { useState } from "react";
 import { w, h } from "react-native-responsiveness";
 import { mainColor, screenBg } from "../AppColors";
-const CustomAuthBtn = ({ title, bgColor, onClick, istimer }) => {
+const CustomAuthBtn = ({ title, bgColor, onClick }) => {
   const [isLoadinCheck, setisLoadinCheck] = useState(false);
   const onClickFun = async () => {
     setisLoadinCheck(true);
@@ -19,7 +19,7 @@ const CustomAuthBtn = ({ title, bgColor, onClick, istimer }) => {
     <TouchableOpacity
       style={{
         ...styles.btn,
-        width: istimer ? "70%" : "75%",
+        width: "60%",
         backgroundColor: bgColor ? bgColor : mainColor,
       }}
       onPress={onClickFun}
@@ -42,11 +42,11 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: h("1%"),
+    borderRadius: h("5%"),
   },
   text: {
     fontSize: h("2.8%"),
     fontWeight: "bold",
-    color: screenBg,
+    color: mainColor,
   },
 });

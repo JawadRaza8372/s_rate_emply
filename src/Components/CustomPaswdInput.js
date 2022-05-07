@@ -7,40 +7,60 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
-import { inputBg, mainColor } from "../AppColors";
+import { inputBg, mainColor, stopColor } from "../AppColors";
 import { w, h } from "react-native-responsiveness";
-const CustomPaswdInput = ({ iconName, value, onChange, ...otherprops }) => {
+const CustomPaswdInput = ({
+  title,
+  placeholder,
+  onChange,
+  onBlur,
+  error,
+  ...otherprops
+}) => {
   const [showPaswd, setshowPaswd] = useState(true);
   return (
-    <View style={styles.customInptdiv}>
-      {iconName && (
-        <MaterialCommunityIcons
-          name={`${iconName}`}
-          size={h("3%")}
-          color={mainColor}
-        />
-      )}
-      <TextInput
-        {...otherprops}
-        style={{ ...styles.custminp, width: iconName ? "76%" : "86%" }}
-        placeholder="********"
-        secureTextEntry={showPaswd}
-        value={value}
-        onChangeText={onChange}
-        autoCapitalize="none"
-        autoCorrect={false}
-        autoComplete="off"
-      />
-      <TouchableOpacity
-        style={styles.inpBtn}
-        onPress={() => setshowPaswd(!showPaswd)}
+    <View
+      style={{
+        ...styles.customInptdiv,
+        borderColor: error ? stopColor : "#94A3BE",
+      }}
+    >
+      <Text
+        style={{ ...styles.titletxt, color: error ? stopColor : "#202442" }}
       >
-        <Feather
-          name={showPaswd ? "eye-off" : "eye"}
-          size={h("2.5%")}
-          color={mainColor}
+        {title}
+      </Text>
+      <View
+        style={{
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "row",
+        }}
+      >
+        <TextInput
+          {...otherprops}
+          style={{ ...styles.custminp, width: "88%", paddingLeft: 10 }}
+          secureTextEntry={showPaswd}
+          onChangeText={onChange}
+          placeholder={`${placeholder}`}
+          autoCapitalize="none"
+          autoCorrect={false}
+          autoComplete="off"
+          onBlur={onBlur}
         />
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.inpBtn}
+          onPress={() => setshowPaswd(!showPaswd)}
+        >
+          <Feather
+            name={showPaswd ? "eye-off" : "eye"}
+            size={h("2.5%")}
+            color={mainColor}
+          />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -50,18 +70,17 @@ export default CustomPaswdInput;
 const styles = StyleSheet.create({
   customInptdiv: {
     width: w("88%"),
-    backgroundColor: inputBg,
     borderRadius: h("1%"),
-    height: h("6%"),
+    height: h("8%"),
     display: "flex",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    flexDirection: "column",
     alignSelf: "center",
+    borderBottomWidth: 1,
   },
   custminp: {
-    height: "100%",
-    backgroundColor: "transparent",
+    height: h("5%"),
   },
   inpBtn: {
     height: "100%",
@@ -69,5 +88,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "8%",
+  },
+  titletxt: {
+    fontSize: h("1.7%"),
+    textTransform: "capitalize",
   },
 });

@@ -13,38 +13,6 @@ import { useDispatch } from "react-redux";
 const Stack = createStackNavigator();
 export default function MyStackNavig() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    db.collection("TaskMange").onSnapshot((snapshot) => {
-      dispatch(
-        setTasks({
-          tasks: snapshot.docs.map((doc) => ({
-            id: doc.id,
-            title: doc.data().Title,
-            value: doc.data().Value,
-            isShow: doc.data().isShow,
-          })),
-        })
-      );
-    });
-    db.collection("DailyActivity")
-      .orderBy("created", "desc")
-      .onSnapshot((snapshot) => {
-        dispatch(
-          setUserActivity({
-            usersActivity: snapshot.docs
-              .map((doc) => ({
-                id: doc.id,
-                createdAt: doc.data().createdAt,
-                userid: doc.data().userid,
-                activity: doc.data().activity,
-              }))
-              .sort(
-                (a, b) => b.createdAt.substring(4) - b.createdAt.substring(4)
-              ),
-          })
-        );
-      });
-  }, []);
 
   return (
     <NavigationContainer>
@@ -52,34 +20,6 @@ export default function MyStackNavig() {
         <Stack.Screen
           name="Auth"
           component={AuthScreen}
-          options={{ headerShown: false }}
-        />
-
-        <Stack.Screen
-          name="Client"
-          component={CustomBottomTab}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Admin"
-          component={CustomBottomTabAdmin}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="adminActivity"
-          component={AdminActivityScreen}
-          options={{ headerShown: false }}
-          initialParams={{ userid: null }}
-        />
-        <Stack.Screen
-          name="UpdateUserAdmin"
-          component={UpdateUserScreen}
-          options={{ headerShown: false }}
-          initialParams={{ userid: null }}
-        />
-        <Stack.Screen
-          name="Subscription"
-          component={MySubscription}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

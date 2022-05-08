@@ -35,13 +35,13 @@ const CustomPaswdInput = ({
           width: "100%",
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           flexDirection: "row",
         }}
       >
         <TextInput
           {...otherprops}
-          style={{ ...styles.custminp, width: "88%", paddingLeft: 10 }}
+          style={{ ...styles.custminp, width: "95%" }}
           secureTextEntry={showPaswd}
           onChangeText={onChange}
           placeholder={`${placeholder}`}
@@ -70,7 +70,7 @@ export default CustomPaswdInput;
 const styles = StyleSheet.create({
   customInptdiv: {
     width: w("88%"),
-    borderRadius: h("1%"),
+    // borderRadius: h("1%"),
     height: h("8%"),
     display: "flex",
     alignItems: "flex-start",
@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "8%",
+    backgroundColor: "blue",
   },
   titletxt: {
     fontSize: h("1.7%"),

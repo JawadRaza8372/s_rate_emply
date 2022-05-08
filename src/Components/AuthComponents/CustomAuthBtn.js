@@ -21,6 +21,7 @@ const CustomAuthBtn = ({ title, bgColor, onClick }) => {
         ...styles.btn,
         width: "60%",
         backgroundColor: bgColor ? bgColor : mainColor,
+        height: h("6%"),
       }}
       onPress={onClickFun}
     >

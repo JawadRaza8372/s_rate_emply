@@ -27,7 +27,6 @@ const CustomInput = ({
         style={{
           ...styles.custminp,
           width: "100%",
-          paddingHorizontal: 10,
         }}
         onChangeText={onChange}
         placeholder={`${placeholder}`}
@@ -46,7 +45,6 @@ export default CustomInput;
 const styles = StyleSheet.create({
   customInptdiv: {
     width: w("88%"),
-    borderRadius: h("1%"),
     height: h("8%"),
     display: "flex",
     alignItems: "flex-start",

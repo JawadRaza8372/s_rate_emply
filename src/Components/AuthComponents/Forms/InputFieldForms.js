@@ -5,7 +5,6 @@ import ErrorMessage from "./ErrorMessage";
 import CustomInput from "../CustomInput";
 const InputFieldForms = ({ title, name, placeholder, ...otherProps }) => {
   const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
-
   return (
     <View>
       <CustomInput

@@ -4,8 +4,11 @@ import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
 import CustomAuthBtn from "../../Components/AuthComponents/CustomAuthBtn";
 import { secColor } from "../../AppColors";
 import { w, h } from "react-native-responsiveness";
-const RegistrationSuccess = () => {
+const RegistrationSuccess = ({ navigation }) => {
   const msg = "Registration\nCompleted";
+  const onSubmit = () => {
+    navigation.navigate("FailedScreen");
+  };
   return (
     <SafeAreaComp>
       <View style={styles.maindiv}>
@@ -15,11 +18,7 @@ const RegistrationSuccess = () => {
         />
         <Text style={styles.maintxt}>{msg}</Text>
 
-        <CustomAuthBtn
-          bgColor={secColor}
-          title="Ok"
-          onClick={() => alert("Ok")}
-        />
+        <CustomAuthBtn bgColor={secColor} title="Ok" onClick={onSubmit} />
       </View>
     </SafeAreaComp>
   );

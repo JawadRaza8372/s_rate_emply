@@ -7,12 +7,13 @@ import InputFieldForms from "../../Components/AuthComponents/Forms/InputFieldFor
 import * as Yup from "yup";
 import { w, h } from "react-native-responsiveness";
 import { secColor, mainColor } from "../../AppColors";
-const ForgotPasswordScreen = () => {
+const ForgotPasswordScreen = ({ navigation }) => {
   const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label("Email"),
   });
   let onSubmitFun = (values) => {
     console.log(values);
+    navigation.navigate("SuccessScreen");
   };
   return (
     <SafeAreaComp>

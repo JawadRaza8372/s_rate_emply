@@ -6,9 +6,12 @@ import CustomAuthBtn from "../../Components/AuthComponents/CustomAuthBtn";
 import { mainColor, secColor } from "../../AppColors";
 import { w, h } from "react-native-responsiveness";
 import ErrorMessage from "../../Components/AuthComponents/Forms/ErrorMessage";
-const OtpScreen = () => {
+const OtpScreen = ({ navigation }) => {
   let otpInput = useRef(null);
   const [otptext, setotptext] = useState("");
+  const onSubmitFun = () => {
+    navigation.navigate("RegistrationSuccess");
+  };
   return (
     <SafeAreaComp>
       <View style={styles.otpsection}>
@@ -30,7 +33,7 @@ const OtpScreen = () => {
         <CustomAuthBtn
           bgColor={secColor}
           title={"Submit"}
-          onClick={() => alert("otp is " + otptext)}
+          onClick={onSubmitFun}
         />
         <View style={styles.resend}>
           <Text style={styles.firstsubtext}>Didn’t you receive the PIN?</Text>

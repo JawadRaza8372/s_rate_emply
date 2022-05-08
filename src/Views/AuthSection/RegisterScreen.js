@@ -17,18 +17,19 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { mainColor } from "../../AppColors";
 import { ScrollView } from "react-native-gesture-handler";
 import FormPhoneInput from "../../Components/AuthComponents/Forms/FormPhoneInput";
-const RegisterScreen = () => {
+const RegisterScreen = ({ navigation }) => {
   const validationSchema = Yup.object().shape({
     firstname: Yup.string().required().label("First Name"),
     lastname: Yup.string().required().label("Last Name"),
     nickname: Yup.string().required().label("Nick Name"),
     email: Yup.string().required().email().label("Email"),
-    phone: Yup.string().required().label("Phone Number"),
+    phone: Yup.string().required().max(15).min(5).label("Phone Number"),
     password: Yup.string().required().min(4).label("Password"),
     repassword: Yup.string().required().min(4).label("Re-type Password"),
   });
   let onSubmitFun = (values) => {
     console.log(values);
+    navigation.navigate("OtpScreen");
   };
   const finalmsg =
     "Email and Nickname are unique and cannot be\nchanged. Your Nickname will appear to customers.";
@@ -142,7 +143,7 @@ const styles = StyleSheet.create({
     height: "13%",
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     flexDirection: "column",
   },
   phonetxt: {

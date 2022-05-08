@@ -5,6 +5,7 @@ import {
   Animated,
   Image,
   ImageBackground,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
@@ -16,13 +17,14 @@ import InputFieldForms from "../../Components/AuthComponents/Forms/InputFieldFor
 import * as Yup from "yup";
 import PasswordInputFieldForm from "../../Components/AuthComponents/Forms/PasswordInputFieldForm";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label("Email"),
     password: Yup.string().required().min(4).label("Password"),
   });
   let onSubmitFun = (values) => {
-    console.log(values);
+    console.log("values", values);
+    navigation.navigate("WelcomScren");
   };
   return (
     <SafeAreaComp>
@@ -52,7 +54,12 @@ const LoginScreen = () => {
               name="password"
               placeholder={"Enter Your Password"}
             />
-
+            <TouchableOpacity
+              style={styles.forgotBtn}
+              onPress={() => navigation.navigate("ForgotPasswordScreen")}
+            >
+              <Text style={styles.forgottext}>Forgot Password?</Text>
+            </TouchableOpacity>
             <FormSubmitButton title={"Login"} />
           </Forms>
         </View>
@@ -123,5 +130,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: h("1%"),
     color: mainColor,
+  },
+  forgottext: {
+    color: mainColor,
+    fontSize: h("2%"),
+    fontWeight: "bold",
+  },
+  forgotBtn: {
+    width: w("88%"),
+    alignSelf: "center",
   },
 });

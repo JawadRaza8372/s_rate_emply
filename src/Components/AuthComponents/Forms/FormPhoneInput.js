@@ -26,16 +26,15 @@ const FormPhoneInput = ({ title, name, placeholder, ...otherProps }) => {
         layout="second"
         onChangeText={(text) => {
           // setValue(text);
-          const checkValid = phoneInput.current?.isValidNumber(text);
-          setShowMessage(checkValid ? false : text.length <= 0 ? false : true);
+          // const checkValid = phoneInput.current?.isValidNumber(text);
+          // setShowMessage(checkValid ? false : text.length <= 0 ? false : true);
         }}
         onChangeFormattedText={handleChange(name)}
         // withDarkTheme
         withShadow={false}
         containerStyle={{
           backgroundColor: screenBg,
-          borderBottomColor:
-            errors[name] || showMessage ? stopColor : "#94A3BE",
+          borderBottomColor: errors[name] ? stopColor : "#94A3BE",
           borderBottomWidth: 1,
           width: w("88%"),
         }}
@@ -45,7 +44,7 @@ const FormPhoneInput = ({ title, name, placeholder, ...otherProps }) => {
       />
       <ErrorMessage
         error={errors[name] ? errors[name] : "Enter Valid Number"}
-        visible={errors[name] || showMessage}
+        visible={errors[name]}
       />
     </View>
   );

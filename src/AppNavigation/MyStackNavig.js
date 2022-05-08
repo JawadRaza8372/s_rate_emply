@@ -17,11 +17,19 @@ import WelcomeScreen from "../Views/AuthSection/WelcomeScreen";
 
 // dashboard screens
 
+// Profile Screens
+import Profile from "../Views/Profile/Profile";
+
 const Stack = createStackNavigator();
 export default function MyStackNavig() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="SplashScreen"
           component={SplashScreen}

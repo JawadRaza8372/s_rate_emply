@@ -65,7 +65,13 @@ const LoginScreen = ({ navigation }) => {
         </View>
         <View style={styles.switchdiv}>
           <Text>Don’t have an account? </Text>
-          <Text style={styles.regtext}>Register</Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("RegisterScreen");
+            }}
+          >
+            <Text style={styles.regtext}>Register</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaComp>

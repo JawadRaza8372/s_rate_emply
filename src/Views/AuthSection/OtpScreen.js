@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     textAlign: "center",
     marginBottom: h("2%"),
+    color: "#202442",
   },
   resend: {
     width: "100%",

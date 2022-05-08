@@ -17,6 +17,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { mainColor } from "../../AppColors";
 import { ScrollView } from "react-native-gesture-handler";
 import FormPhoneInput from "../../Components/AuthComponents/Forms/FormPhoneInput";
+
 const RegisterScreen = ({ navigation }) => {
   const validationSchema = Yup.object().shape({
     firstname: Yup.string().required().label("First Name"),
@@ -27,10 +28,12 @@ const RegisterScreen = ({ navigation }) => {
     password: Yup.string().required().min(4).label("Password"),
     repassword: Yup.string().required().min(4).label("Re-type Password"),
   });
+
   let onSubmitFun = (values) => {
     console.log(values);
     navigation.navigate("OtpScreen");
   };
+
   const finalmsg =
     "Email and Nickname are unique and cannot be\nchanged. Your Nickname will appear to customers.";
   const [value, setValue] = useState("");
@@ -38,13 +41,17 @@ const RegisterScreen = ({ navigation }) => {
   const [valid, setValid] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
   const phoneInput = useRef();
+
   return (
     <SafeAreaComp>
       <View style={styles.registerScreen}>
-        <View style={styles.headerContent}>
-          <Text style={styles.maineading}>Register</Text>
-        </View>
-        <ScrollView contentContainerStyle={{ width: w("100%") }}>
+        <ScrollView
+          contentContainerStyle={{ width: w("100%"), height: h("155%") }}
+        >
+          <View style={styles.headerContent}>
+            <Text style={styles.maineading}>Register</Text>
+          </View>
+
           <Forms
             initialValues={{
               firstname: "",

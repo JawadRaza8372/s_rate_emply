@@ -88,7 +88,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "8%",
-    backgroundColor: "blue",
   },
   titletxt: {
     fontSize: h("1.7%"),

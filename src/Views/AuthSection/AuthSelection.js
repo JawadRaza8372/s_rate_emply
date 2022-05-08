@@ -1,16 +1,16 @@
 import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
 import React from "react";
-import SafeAreaComp from "../Components/SafeAreaComp";
+import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
 import { w, h } from "react-native-responsiveness";
-import { mainColor, screenBg, secColor } from "../AppColors";
-import CustomAuthBtn from "../Components/CustomAuthBtn";
+import { mainColor, screenBg, secColor } from "../../AppColors";
+import CustomAuthBtn from "../../Components/AuthComponents/CustomAuthBtn";
 const AuthSelection = () => {
   return (
     <SafeAreaComp>
       <ScrollView>
         <View style={styles.optionView}>
           <Image
-            source={require("../../assets/s_ratedlogo.png")}
+            source={require("../../../assets/s_ratedlogo.png")}
             style={styles.imgshow}
           />
           <Text style={styles.desctext}>
@@ -23,7 +23,7 @@ const AuthSelection = () => {
         </View>
         <View style={styles.imgdiv}>
           <Image
-            source={require("../../assets/s-rate_home_top.png")}
+            source={require("../../../assets/s-rate_home_top.png")}
             style={styles.imgshowsec}
           />
         </View>

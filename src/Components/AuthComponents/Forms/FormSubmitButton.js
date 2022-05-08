@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { useFormikContext } from "formik";
-import CustomAuthBtn from "../../CustomAuthBtn";
+import CustomAuthBtn from "../CustomAuthBtn";
 import { secColor } from "../../../AppColors";
 
 const FormSubmitButton = ({ title }) => {

@@ -7,14 +7,14 @@ import {
   ImageBackground,
 } from "react-native";
 import React from "react";
-import SafeAreaComp from "../Components/SafeAreaComp";
+import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
 import { w, h } from "react-native-responsiveness";
-import { mainColor } from "../AppColors";
-import Forms from "../Components/Forms/Forms";
-import FormSubmitButton from "../Components/Forms/FormSubmitButton";
-import InputFieldForms from "../Components/Forms/InputFieldForms";
+import { mainColor } from "../../AppColors";
+import Forms from "../../Components/AuthComponents/Forms/Forms";
+import FormSubmitButton from "../../Components/AuthComponents/Forms/FormSubmitButton";
+import InputFieldForms from "../../Components/AuthComponents/Forms/InputFieldForms";
 import * as Yup from "yup";
-import PasswordInputFieldForm from "../Components/Forms/PasswordInputFieldForm";
+import PasswordInputFieldForm from "../../Components/AuthComponents/Forms/PasswordInputFieldForm";
 
 const LoginScreen = () => {
   const validationSchema = Yup.object().shape({
@@ -28,13 +28,13 @@ const LoginScreen = () => {
     <SafeAreaComp>
       <View style={styles.header}>
         <ImageBackground
-          source={require("../../assets/Background.png")}
+          source={require("../../../assets/Background.png")}
           style={styles.imgshow}
           resizeMode="cover"
         >
           <View style={styles.headerimgcont}>
             <Image
-              source={require("../../assets/s_ratedlogo.png")}
+              source={require("../../../assets/s_ratedlogo.png")}
               style={styles.mImgshow}
             />
           </View>

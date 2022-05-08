@@ -1,18 +1,18 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useState, useRef } from "react";
-import SafeAreaComp from "../Components/SafeAreaComp";
-import Forms from "../Components/Forms/Forms";
-import FormSubmitButton from "../Components/Forms/FormSubmitButton";
-import InputFieldForms from "../Components/Forms/InputFieldForms";
+import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
+import Forms from "../../Components/AuthComponents/Forms/Forms";
+import FormSubmitButton from "../../Components/AuthComponents/Forms/FormSubmitButton";
+import InputFieldForms from "../../Components/AuthComponents/Forms/InputFieldForms";
 import * as Yup from "yup";
-import PasswordInputFieldForm from "../Components/Forms/PasswordInputFieldForm";
+import PasswordInputFieldForm from "../../Components/AuthComponents/Forms/PasswordInputFieldForm";
 import CountryPicker from "react-native-country-picker-modal";
 import PhoneInput from "react-native-phone-number-input";
-import CustomAuthBtn from "../Components/CustomAuthBtn";
-import { screenBg, secColor, stopColor } from "../AppColors";
-import ErrorMessage from "../Components/Forms/ErrorMessage";
+import CustomAuthBtn from "../../Components/AuthComponents/CustomAuthBtn";
+import { screenBg, secColor, stopColor } from "../../AppColors";
+import ErrorMessage from "../../Components/AuthComponents/Forms/ErrorMessage";
 import { w, h } from "react-native-responsiveness";
-import PhoneNumberField from "../Components/PhoneNumberField";
+import PhoneNumberField from "../../Components/AuthComponents/PhoneNumberField";
 import { ScrollView } from "react-native-gesture-handler";
 const RegisterScreen = () => {
   const validationSchema = Yup.object().shape({

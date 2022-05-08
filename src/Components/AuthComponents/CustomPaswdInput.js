@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
-import { inputBg, mainColor, stopColor } from "../AppColors";
+import { inputBg, mainColor, stopColor } from "../../AppColors";
 import { w, h } from "react-native-responsiveness";
 const CustomPaswdInput = ({
   title,

@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
 import { Feather, Zocial } from "@expo/vector-icons";
-import { inputBg, mainColor, stopColor } from "../AppColors";
+import { inputBg, mainColor, stopColor } from "../../AppColors";
 import { w, h } from "react-native-responsiveness";
 const CustomInput = ({
   title,

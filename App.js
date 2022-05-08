@@ -1,24 +1,19 @@
-import { StyleSheet, Text, View, StatusBar, SafeAreaView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+  SafeAreaView,
+  LogBox,
+} from "react-native";
 
 // main navigation screen Imported
 import MyStackNavig from "./src/AppNavigation/MyStackNavig";
-// jawad razaa
-// jawad razaa
-// jawad razaa
-// jawad razaa
-// jawad razaa
-// jawad razaa
-// jawad razaa
-// jawad razaa
-// jawad razaa
-// jawad razaa
-// jawad razaa
-// jawad razaa
-// jawad razaa
-// jawad razaa
-// jawad razaa
 
 export default function App() {
+  LogBox.ignoreLogs([
+    "[react-native-gesture-handler] Seems like you're using an old API with",
+  ]);
   return (
     <>
       <StatusBar />

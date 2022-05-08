@@ -1,25 +1,74 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import CustomBottomTab from "./CustomBottomTab";
-import AuthScreen from "../Views/AuthScreen";
-import CustomBottomTabAdmin from "./CustomBottomTabAdmin";
-import AdminActivityScreen from "../Views/AdminActivityScreen";
-import UpdateUserScreen from "../Views/UpdateUserScreen";
-import MySubscription from "../Views/MySubscription";
 import { useEffect } from "react";
-import { db } from "../DataBase/Configer";
-import { setUserActivity, setTasks } from "../store/projectSlice";
-import { useDispatch } from "react-redux";
+
+// AuthSection screens
+import AuthSelection from "../Views/AuthSection/AuthSelection";
+import LoginScreen from "../Views/AuthSection/LoginScreen";
+import SplashScreen from "../Views/AuthSection/SplashScreen";
+import SplashScreenSec from "../Views/AuthSection/SplashScreenSec";
+import RegisterScreen from "../Views/AuthSection/RegisterScreen";
+import OtpScreen from "../Views/AuthSection/OtpScreen";
+import FailedScreen from "../Views/AuthSection/FailedScreen";
+import SuccessScreen from "../Views/AuthSection/SuccessScreen";
+import RegistrationSuccess from "../Views/AuthSection/RegistrationSuccess";
+import ForgotPasswordScreen from "../Views/AuthSection/ForgotPasswordScreen";
+
+// dashboard screens
+
 const Stack = createStackNavigator();
 export default function MyStackNavig() {
-  const dispatch = useDispatch();
-
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Auth"
-          component={AuthScreen}
+          name="SplashScreen"
+          component={SplashScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SplashScreenSec"
+          component={SplashScreenSec}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="AuthSelection"
+          component={AuthSelection}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="LoginScreen"
+          component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="RegisterScreen"
+          component={RegisterScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="OtpScreen"
+          component={OtpScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="FailedScreen"
+          component={FailedScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SuccessScreen"
+          component={SuccessScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="RegistrationSuccess"
+          component={RegistrationSuccess}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ForgotPasswordScreen"
+          component={ForgotPasswordScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

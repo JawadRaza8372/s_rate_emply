@@ -10,7 +10,7 @@ import CustomInput from "./CustomInput";
 import CustomPaswdInput from "./CustomPaswdInput";
 import { w, h } from "react-native-responsiveness";
 import CustomAuthBtn from "./CustomAuthBtn";
-import { inputBg, mainColor } from "../AppColors";
+import { inputBg, mainColor } from "../../AppColors";
 import { KeyboardAwareScrollView } from "@codler/react-native-keyboard-aware-scroll-view";
 const AdminLogin = ({ onSubmit }) => {
   const [isRemember, setisRemember] = useState(false);

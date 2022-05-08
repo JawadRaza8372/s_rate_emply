@@ -6,7 +6,7 @@ import {
   View,
 } from "react-native";
 import React, { useState } from "react";
-import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Feather, MaterialCommunityIcons, Ionicons } from "@expo/vector-icons";
 import { inputBg, mainColor, stopColor } from "../../AppColors";
 import { w, h } from "react-native-responsiveness";
 const CustomPaswdInput = ({
@@ -54,7 +54,7 @@ const CustomPaswdInput = ({
           style={styles.inpBtn}
           onPress={() => setshowPaswd(!showPaswd)}
         >
-          <Feather
+          <Ionicons
             name={showPaswd ? "eye-off" : "eye"}
             size={h("2.5%")}
             color={mainColor}

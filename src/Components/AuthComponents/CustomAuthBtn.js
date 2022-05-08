@@ -8,6 +8,8 @@ import {
 import React, { useState } from "react";
 import { w, h } from "react-native-responsiveness";
 import { mainColor, screenBg } from "../../AppColors";
+import { LinearGradient } from "expo-linear-gradient";
+
 const CustomAuthBtn = ({ title, bgColor, onClick }) => {
   const [isLoadinCheck, setisLoadinCheck] = useState(false);
   const onClickFun = async () => {
@@ -16,21 +18,25 @@ const CustomAuthBtn = ({ title, bgColor, onClick }) => {
     setisLoadinCheck(false);
   };
   return (
-    <TouchableOpacity
+    <LinearGradient
+      // Button Linear Gradient
+      colors={["#DABE9C", "#F2D2A3", "#DABE9C"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 0 }}
       style={{
         ...styles.btn,
         width: "60%",
-        backgroundColor: bgColor ? bgColor : mainColor,
         height: h("6%"),
       }}
-      onPress={onClickFun}
     >
-      {isLoadinCheck ? (
-        <ActivityIndicator size={"large"} color={screenBg} />
-      ) : (
-        <Text style={styles.text}>{title}</Text>
-      )}
-    </TouchableOpacity>
+      <TouchableOpacity onPress={onClickFun}>
+        {isLoadinCheck ? (
+          <ActivityIndicator size={"large"} color={screenBg} />
+        ) : (
+          <Text style={styles.text}>{title}</Text>
+        )}
+      </TouchableOpacity>
+    </LinearGradient>
   );
 };
 

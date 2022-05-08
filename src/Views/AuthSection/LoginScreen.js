@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   },
   forgottext: {
     color: mainColor,
-    fontSize: h("2%"),
+    fontSize: h("2.2%"),
     fontWeight: "bold",
   },
   forgotBtn: {

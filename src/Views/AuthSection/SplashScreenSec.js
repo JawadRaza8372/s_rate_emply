@@ -1,8 +1,14 @@
 import { StyleSheet, Text, View, Image } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { mainColor, secColor } from "../../AppColors";
 import { w, h } from "react-native-responsiveness";
-const SplashScreenSec = () => {
+const SplashScreenSec = ({ navigation }) => {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.replace("AuthSelection");
+    }, 3500);
+  }, []);
+
   return (
     <View style={styles.splashbg}>
       <Image

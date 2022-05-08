@@ -2,16 +2,11 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import { w, h } from "react-native-responsiveness";
 import { mainColor } from "../../AppColors";
-const SplashScreen = () => {
+const SplashScreen = ({ navigation }) => {
   const [imgIndex, setimgIndex] = useState(
     require("../../../assets/face_neutralGold.png")
   );
-  const imagesAr = [
-    { img: require("../../../assets/face_neutralGold.png") },
-    { img: require("../../../assets/face_happyGold.png") },
-    { img: require("../../../assets/face_starsGold.png") },
-  ];
-  const switchimg = () => {};
+
   useEffect(() => {
     setTimeout(() => {
       setimgIndex(require("../../../assets/face_happyGold.png"));
@@ -22,6 +17,12 @@ const SplashScreen = () => {
       setimgIndex(require("../../../assets/face_starsGold.png"));
     }, 3000);
   }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.replace("SplashScreenSec");
+    }, 3500);
+  }, []);
+
   return (
     <View style={styles.splashbg}>
       <Image source={imgIndex} style={styles.imgshow} />

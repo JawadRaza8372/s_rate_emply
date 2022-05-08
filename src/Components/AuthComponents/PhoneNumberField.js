@@ -10,7 +10,7 @@ import CountryPicker, {
   isCountryCode,
 } from "react-native-country-picker-modal";
 import CustomAuthBtn from "./CustomAuthBtn";
-import { secColor } from "../AppColors";
+import { secColor } from "../../AppColors";
 import { w, h } from "react-native-responsiveness";
 const PhoneNumberField = () => {
   const [isVisible, setisVisible] = useState(false);

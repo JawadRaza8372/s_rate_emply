@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { w, h } from "react-native-responsiveness";
-import { mainColor, screenBg } from "../AppColors";
+import { mainColor, screenBg } from "../../AppColors";
 const CustomAuthBtn = ({ title, bgColor, onClick }) => {
   const [isLoadinCheck, setisLoadinCheck] = useState(false);
   const onClickFun = async () => {

@@ -1,27 +1,30 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import { w, h } from "react-native-responsiveness";
-import { mainColor } from "../AppColors";
+import { mainColor } from "../../AppColors";
 const SplashScreen = () => {
-  const [imgIndex, setimgIndex] = useState(0);
+  const [imgIndex, setimgIndex] = useState(
+    require("../../../assets/face_neutralGold.png")
+  );
   const imagesAr = [
-    { img: require("../../assets/face_neutralGold.png") },
-    { img: require("../../assets/face_happyGold.png") },
-    { img: require("../../assets/face_starsGold.png") },
+    { img: require("../../../assets/face_neutralGold.png") },
+    { img: require("../../../assets/face_happyGold.png") },
+    { img: require("../../../assets/face_starsGold.png") },
   ];
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     if (imgIndex < imagesAr.length) {
-  //       setimgIndex(imgIndex + 1);
-  //     } else {
-  //       setimgIndex(0);
-  //     }
-  //   }, 1900);
-  // }, []);
-
+  const switchimg = () => {};
+  useEffect(() => {
+    setTimeout(() => {
+      setimgIndex(require("../../../assets/face_happyGold.png"));
+    }, 1500);
+  }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      setimgIndex(require("../../../assets/face_starsGold.png"));
+    }, 3000);
+  }, []);
   return (
     <View style={styles.splashbg}>
-      <Image source={imagesAr[imgIndex].img} style={styles.imgshow} />
+      <Image source={imgIndex} style={styles.imgshow} />
     </View>
   );
 };

@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import SafeAreaComp from "../Components/SafeAreaComp";
-import Forms from "../Components/Forms/Forms";
-import FormSubmitButton from "../Components/Forms/FormSubmitButton";
-import InputFieldForms from "../Components/Forms/InputFieldForms";
+import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
+import Forms from "../../Components/AuthComponents/Forms/Forms";
+import FormSubmitButton from "../../Components/AuthComponents/Forms/FormSubmitButton";
+import InputFieldForms from "../../Components/AuthComponents/Forms/InputFieldForms";
 import * as Yup from "yup";
 import { w, h } from "react-native-responsiveness";
-import { mainColor } from "../AppColors";
+import { secColor, mainColor } from "../../AppColors";
 const ForgotPasswordScreen = () => {
   const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label("Email"),

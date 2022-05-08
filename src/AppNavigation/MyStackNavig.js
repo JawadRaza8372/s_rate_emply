@@ -13,6 +13,7 @@ import FailedScreen from "../Views/AuthSection/FailedScreen";
 import SuccessScreen from "../Views/AuthSection/SuccessScreen";
 import RegistrationSuccess from "../Views/AuthSection/RegistrationSuccess";
 import ForgotPasswordScreen from "../Views/AuthSection/ForgotPasswordScreen";
+import WelcomeScreen from "../Views/AuthSection/WelcomeScreen";
 
 // dashboard screens
 
@@ -34,6 +35,11 @@ export default function MyStackNavig() {
         <Stack.Screen
           name="AuthSelection"
           component={AuthSelection}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="WelcomScren"
+          component={WelcomeScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen

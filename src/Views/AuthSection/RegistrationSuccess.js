@@ -1,8 +1,8 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import SafeAreaComp from "../Components/SafeAreaComp";
-import CustomAuthBtn from "../Components/CustomAuthBtn";
-import { secColor } from "../AppColors";
+import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
+import CustomAuthBtn from "../../Components/AuthComponents/CustomAuthBtn";
+import { secColor } from "../../AppColors";
 import { w, h } from "react-native-responsiveness";
 const RegistrationSuccess = () => {
   const msg = "Registration\nCompleted";
@@ -10,7 +10,7 @@ const RegistrationSuccess = () => {
     <SafeAreaComp>
       <View style={styles.maindiv}>
         <Image
-          source={require("../../assets/success.png")}
+          source={require("../../../assets/success.png")}
           style={styles.imgShow}
         />
         <Text style={styles.maintxt}>{msg}</Text>

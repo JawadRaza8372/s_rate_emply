@@ -1,6 +1,6 @@
 import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { screenBg } from "../AppColors";
+import { screenBg } from "../../AppColors";
 
 const SafeAreaComp = ({ children }) => {
   return <SafeAreaView style={styles.safeviewcomp}>{children}</SafeAreaView>;

@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useRef, useState } from "react";
 import OTPTextInput from "react-native-otp-textinput";
-import SafeAreaComp from "../Components/SafeAreaComp";
-import CustomAuthBtn from "../Components/CustomAuthBtn";
-import { mainColor, secColor } from "../AppColors";
+import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
+import CustomAuthBtn from "../../Components/AuthComponents/CustomAuthBtn";
+import { mainColor, secColor } from "../../AppColors";
 import { w, h } from "react-native-responsiveness";
-import ErrorMessage from "../Components/Forms/ErrorMessage";
+import ErrorMessage from "../../Components/AuthComponents/Forms/ErrorMessage";
 const OtpScreen = () => {
   let otpInput = useRef(null);
   const [otptext, setotptext] = useState("");
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    marginTop: h("5%"),
+    marginVertical: h("5%"),
   },
   firstsubtext: {
     fontSize: h("1.8%"),

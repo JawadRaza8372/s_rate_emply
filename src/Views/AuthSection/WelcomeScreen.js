@@ -6,6 +6,7 @@ import {
   ImageBackground,
   FlatList,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import React, { useState, useEffect, useRef } from "react";
 import { w, h } from "react-native-responsiveness";
@@ -19,35 +20,35 @@ const WelcomeScreen = ({ navigation }) => {
   const onboardData = [
     {
       title: "Welcome to",
-      key: 1,
+      key: 0,
       subtitle:
         "the only service rating app allowing guests to review each employee individually",
       imglink: require("../../../assets/s_ratedlogo.png"),
     },
     {
       title: "MAKE IT PERSONAL",
-      key: 2,
+      key: 1,
 
       subtitle:
         "Increase your personal evaluations and convert hotel guests to your personal advocates of your exceptional work",
       imglink: require("../../../assets/pic1.png"),
     },
     {
-      key: 3,
+      key: 2,
       title: "BUILD UP YOUR CAREER",
       subtitle:
         "Get live feedback from customers that can help you improve your performance and skills. Create a high rated profile visible for your top managers.",
       imglink: require("../../../assets/pic2.png"),
     },
     {
-      key: 4,
+      key: 3,
       title: "ACHIEVE YOUR GOALS & GET REWARDED",
       subtitle:
         "Achieve the goals assigned to you and get rewarded for your hard work",
       imglink: require("../../../assets/pic3.png"),
     },
     {
-      key: 5,
+      key: 4,
       title: "SHARE YOUR ACHIEVEMENTS",
       subtitle:
         "Be proud of your achievements. Share ratings and personal achievements on your social accounts ",
@@ -80,49 +81,53 @@ const WelcomeScreen = ({ navigation }) => {
           <View
             style={{
               ...styles.myContainer,
-              backgroundColor: item.key === 1 ? mainColor : screenBg,
+              backgroundColor: item.key === 0 ? mainColor : screenBg,
             }}
           >
             <View
               style={{
                 ...styles.mainContent,
-                justifyContent: item.key === 1 ? "center" : "space-evenly",
+                justifyContent: item.key === 0 ? "center" : "space-evenly",
               }}
             >
               <Text
                 style={{
                   ...styles.heading,
-                  color: item.key === 1 ? screenBg : "black",
+                  color: item.key === 0 ? screenBg : "black",
                 }}
               >
                 {item.title}
               </Text>
-              {item.key === 1 && (
+              {item.key === 0 && (
                 <Image source={item.imglink} style={styles.imgshow} />
               )}
               <Text
                 style={{
                   ...styles.subHeading,
-                  color: item.key === 1 ? screenBg : "black",
+                  color: item.key === 0 ? screenBg : "black",
                 }}
               >
                 {item.subtitle}
               </Text>
-              {item.key !== 1 && (
+              {item.key !== 0 && (
                 <Image source={item.imglink} style={styles.onbordimg} />
               )}
             </View>
             <View style={styles.navigators}>
-              {item.key === 1 ? (
+              {item.key === 0 ? (
                 <View style={styles.invisl} />
               ) : (
                 <WelcomeCustomAuthBtn
                   title={"Prev"}
                   onClick={() => {
-                    if (item.key === 1) {
+                    if (item.key === 0) {
                       alert("nothing");
                     } else {
-                      setitemindex(itemindex - 1);
+                      if (item.key === itemindex) {
+                        setitemindex(itemindex - 1);
+                      } else {
+                        setitemindex(item.key - 1);
+                      }
                     }
                   }}
                 />
@@ -132,13 +137,13 @@ const WelcomeScreen = ({ navigation }) => {
                   <View
                     key={index}
                     style={{
-                      width: index + 1 === item?.key ? 10 : 7,
-                      height: index + 1 === item?.key ? 10 : 7,
+                      width: index === item?.key ? 10 : 7,
+                      height: index === item?.key ? 10 : 7,
                       borderRadius: 10,
                       marginHorizontal: 2,
                       backgroundColor:
-                        index + 1 === item?.key
-                          ? item.key === 1
+                        index === item?.key
+                          ? item.key === 0
                             ? screenBg
                             : mainColor
                           : "lightgrey",
@@ -149,14 +154,29 @@ const WelcomeScreen = ({ navigation }) => {
               <WelcomeCustomAuthBtn
                 title={"Next"}
                 onClick={() => {
-                  if (item.key === 5) {
+                  if (item.key === 4) {
                     alert("dashbord");
                   } else {
-                    setitemindex(itemindex + 1);
+                    if (item.key === itemindex) {
+                      setitemindex(itemindex + 1);
+                    } else {
+                      setitemindex(item.key + 1);
+                    }
                   }
                 }}
               />
             </View>
+            <TouchableOpacity style={styles.skipbtn}>
+              <Text
+                style={{
+                  fontSize: h("2%"),
+                  fontWeight: "bold",
+                  color: item.key === 0 ? screenBg : mainColor,
+                }}
+              >
+                Skip to home
+              </Text>
+            </TouchableOpacity>
           </View>
         )}
       />
@@ -178,11 +198,18 @@ const styles = StyleSheet.create({
   },
   navigators: {
     width: w("100%"),
-    height: h("12%"),
+    height: h("9%"),
     display: "flex",
     alignItems: "center",
     justifyContent: "space-evenly",
     flexDirection: "row",
+  },
+  skipbtn: {
+    width: w("100%"),
+    height: h("4%"),
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   contentContain: {
     width: "100%",
@@ -203,7 +230,7 @@ const styles = StyleSheet.create({
   },
   mainContent: {
     width: w("100%"),
-    height: h("88%"),
+    height: h("85%"),
     display: "flex",
     alignItems: "center",
     flexDirection: "column",

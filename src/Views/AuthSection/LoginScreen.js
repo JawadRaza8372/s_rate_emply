@@ -16,6 +16,7 @@ import FormSubmitButton from "../../Components/AuthComponents/Forms/FormSubmitBu
 import InputFieldForms from "../../Components/AuthComponents/Forms/InputFieldForms";
 import * as Yup from "yup";
 import PasswordInputFieldForm from "../../Components/AuthComponents/Forms/PasswordInputFieldForm";
+import { KeyboardAwareScrollView } from "@codler/react-native-keyboard-aware-scroll-view";
 
 const LoginScreen = ({ navigation }) => {
   const validationSchema = Yup.object().shape({
@@ -28,51 +29,53 @@ const LoginScreen = ({ navigation }) => {
   };
   return (
     <SafeAreaComp>
-      <View style={styles.header}>
-        <ImageBackground
-          source={require("../../../assets/TopProfile.png")}
-          style={styles.imgshow}
-        >
-          <View style={styles.headerimgcont}>
-            <Image
-              source={require("../../../assets/s_ratedlogo.png")}
-              style={styles.mImgshow}
-            />
-          </View>
-        </ImageBackground>
-      </View>
-      <View style={styles.content}>
-        <View style={styles.loginForm}>
-          <Forms
-            initialValues={{ email: "", password: "" }}
-            onSubmit={onSubmitFun}
-            validationSchema={validationSchema}
+      <KeyboardAwareScrollView>
+        <View style={styles.header}>
+          <ImageBackground
+            source={require("../../../assets/TopProfile.png")}
+            style={styles.imgshow}
           >
-            <InputFieldForms name="email" placeholder={"Enter Your Email"} />
-            <PasswordInputFieldForm
-              name="password"
-              placeholder={"Enter Your Password"}
-            />
-            <TouchableOpacity
-              style={styles.forgotBtn}
-              onPress={() => navigation.navigate("ForgotPasswordScreen")}
+            <View style={styles.headerimgcont}>
+              <Image
+                source={require("../../../assets/s_ratedlogo.png")}
+                style={styles.mImgshow}
+              />
+            </View>
+          </ImageBackground>
+        </View>
+        <View style={styles.content}>
+          <View style={styles.loginForm}>
+            <Forms
+              initialValues={{ email: "", password: "" }}
+              onSubmit={onSubmitFun}
+              validationSchema={validationSchema}
             >
-              <Text style={styles.forgottext}>Forgot Password?</Text>
+              <InputFieldForms name="email" placeholder={"Enter Your Email"} />
+              <PasswordInputFieldForm
+                name="password"
+                placeholder={"Enter Your Password"}
+              />
+              <TouchableOpacity
+                style={styles.forgotBtn}
+                onPress={() => navigation.navigate("ForgotPasswordScreen")}
+              >
+                <Text style={styles.forgottext}>Forgot Password?</Text>
+              </TouchableOpacity>
+              <FormSubmitButton title={"Login"} />
+            </Forms>
+          </View>
+          <View style={styles.switchdiv}>
+            <Text>Don’t have an account? </Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("RegisterScreen");
+              }}
+            >
+              <Text style={styles.regtext}>Register</Text>
             </TouchableOpacity>
-            <FormSubmitButton title={"Login"} />
-          </Forms>
+          </View>
         </View>
-        <View style={styles.switchdiv}>
-          <Text>Don’t have an account? </Text>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate("RegisterScreen");
-            }}
-          >
-            <Text style={styles.regtext}>Register</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+      </KeyboardAwareScrollView>
     </SafeAreaComp>
   );
 };

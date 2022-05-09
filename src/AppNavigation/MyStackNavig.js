@@ -21,12 +21,19 @@ import WelcomeScreen from "../Views/AuthSection/WelcomeScreen";
 import Profile from "../Views/Profile/Profile";
 import CreditScreen from "../Views/Profile/CreditScreen";
 import PersonalInfo from "../Views/Profile/PersonalInfo";
-
+import RankingScreen from "../Views/RankingSection/RankingScreen";
+import TopRankingScreen from "../Views/RankingSection/TopRankingScreen";
 const Stack = createStackNavigator();
 export default function MyStackNavig() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="RankingScreen"
+          component={RankingScreen}
+          options={{ headerShown: false }}
+        />
+
         <Stack.Screen
           name="SplashScreen"
           component={SplashScreen}
@@ -101,6 +108,18 @@ export default function MyStackNavig() {
           component={ForgotPasswordScreen}
           options={{ headerShown: false }}
         />
+        {/*Ranking Screen */}
+        {/* <Stack.Screen
+          name="RankingScreen"
+          component={RankingScreen}
+          options={{ headerShown: false }}
+        /> */}
+        <Stack.Screen
+          name="TopRankingScreen"
+          component={TopRankingScreen}
+          options={{ headerShown: false }}
+        />
+        {/*Ranking Screen */}
       </Stack.Navigator>
     </NavigationContainer>
   );

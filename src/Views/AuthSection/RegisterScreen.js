@@ -17,8 +17,19 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { mainColor } from "../../AppColors";
 import { ScrollView } from "react-native-gesture-handler";
 import FormPhoneInput from "../../Components/AuthComponents/Forms/FormPhoneInput";
-
+import Header from "../../Components/CommonComponents/Header";
+import FormPolicyField from "../../Components/AuthComponents/Forms/FormPolicyField";
+import { KeyboardAwareScrollView } from "@codler/react-native-keyboard-aware-scroll-view";
 const RegisterScreen = ({ navigation }) => {
+  const finalmsg =
+    "Email and Nickname are unique and cannot be\nchanged. Your Nickname will appear to customers.";
+  const [value, setValue] = useState("");
+  const [formattedValue, setFormattedValue] = useState("");
+  const [valid, setValid] = useState(false);
+  const [checkbox, setcheckbox] = useState(false);
+  const [showmsg, setshowmsg] = useState(false);
+  const phoneInput = useRef();
+
   const validationSchema = Yup.object().shape({
     firstname: Yup.string().required().label("First Name"),
     lastname: Yup.string().required().label("Last Name"),
@@ -31,105 +42,98 @@ const RegisterScreen = ({ navigation }) => {
 
   let onSubmitFun = (values) => {
     console.log(values);
-    navigation.navigate("OtpScreen");
+    if (values) {
+      if (checkbox === true) {
+        navigation.navigate("OtpScreen");
+      } else {
+        setshowmsg(true);
+      }
+    }
   };
-
-  const finalmsg =
-    "Email and Nickname are unique and cannot be\nchanged. Your Nickname will appear to customers.";
-  const [value, setValue] = useState("");
-  const [formattedValue, setFormattedValue] = useState("");
-  const [valid, setValid] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
-  const phoneInput = useRef();
 
   return (
     <SafeAreaComp>
-      <View style={styles.registerScreen}>
-        <ScrollView
-          contentContainerStyle={{ width: w("100%"), height: h("155%") }}
-        >
-          <View style={styles.headerContent}>
-            <Text style={styles.maineading}>Register</Text>
-          </View>
-
-          <Forms
-            initialValues={{
-              firstname: "",
-              lastname: "",
-              nickname: "",
-              email: "",
-              password: "",
-              repassword: "",
-            }}
-            onSubmit={onSubmitFun}
-            validationSchema={validationSchema}
+      <KeyboardAwareScrollView>
+        <View style={styles.registerScreen}>
+          <ScrollView
+            nestedScrollEnabled
+            contentContainerStyle={{ width: w("100%") }}
           >
-            <InputFieldForms
-              title="First Name*"
-              name="firstname"
-              placeholder={"Enter Your Email"}
-            />
-            <View style={styles.seprator} />
-            <InputFieldForms
-              title="Last Name*"
-              name="lastname"
-              placeholder={"Enter Your Email"}
-            />
-            <View style={styles.seprator} />
-
-            <InputFieldForms
-              title="Nick Name*"
-              name="nickname"
-              placeholder={"Enter Your Email"}
-            />
-            <View style={styles.seprator} />
-
-            <InputFieldForms
-              title="Email*"
-              name="email"
-              placeholder={"Enter Your Email"}
-            />
-            <View style={styles.seprator} />
-
-            <FormPhoneInput
-              title="Email*"
-              name="phone"
-              placeholder={"Enter Your Email"}
-            />
-
-            {/* <PhoneNumberField /> */}
-
-            <View style={styles.seprator} />
-
-            <PasswordInputFieldForm
-              title={"Password*"}
-              name="password"
-              placeholder={"Enter Your Password"}
-            />
-            <View style={styles.seprator} />
-
-            <PasswordInputFieldForm
-              title={"Retype Password*"}
-              name="repassword"
-              placeholder={"Enter Your Password"}
-            />
-            <View style={styles.seprator} />
-            <Text style={styles.mandTxt}>*Mandatory fields</Text>
-            <Text style={styles.mandtxtsub}>{finalmsg}</Text>
-            <View style={styles.checkboxContainer}>
-              <View style={styles.checkbox}>
-                <MaterialIcons name="done" size={h("2%")} color={mainColor} />
-              </View>
-              <Text style={styles.checkboxtxt}>
-                I accept the <Text>Terms & Conditions</Text> of S•Rate
-                application
-              </Text>
+            <View style={styles.headerContent}>
+              <Header onPress={() => navigation.goBack()} />
+              <Text style={styles.maineading}>Register</Text>
             </View>
-            <FormSubmitButton title={"Register"} />
-            <View style={styles.seprator} />
-          </Forms>
-        </ScrollView>
-      </View>
+            <Forms
+              initialValues={{
+                firstname: "",
+                lastname: "",
+                nickname: "",
+                email: "",
+                password: "",
+                repassword: "",
+              }}
+              onSubmit={onSubmitFun}
+              validationSchema={validationSchema}
+            >
+              <InputFieldForms
+                title="First Name*"
+                name="firstname"
+                placeholder={"Enter Your First Name"}
+              />
+              <View style={styles.seprator} />
+              <InputFieldForms
+                title="Last Name*"
+                name="lastname"
+                placeholder={"Enter Your Last Name"}
+              />
+              <View style={styles.seprator} />
+
+              <InputFieldForms
+                title="Nick Name*"
+                name="nickname"
+                placeholder={"Enter Your Nick Name"}
+              />
+              <View style={styles.seprator} />
+
+              <InputFieldForms
+                title="Email*"
+                name="email"
+                placeholder={"Enter Your Email"}
+              />
+              <View style={styles.seprator} />
+
+              <FormPhoneInput title="Email*" name="phone" />
+
+              {/* <PhoneNumberField /> */}
+
+              <View style={styles.seprator} />
+
+              <PasswordInputFieldForm
+                title={"Password*"}
+                name="password"
+                placeholder={"Enter Your Password"}
+              />
+              <View style={styles.seprator} />
+
+              <PasswordInputFieldForm
+                title={"Retype Password*"}
+                name="repassword"
+                placeholder={"Re-Enter Your Password"}
+              />
+              <View style={styles.seprator} />
+              <Text style={styles.mandTxt}>*Mandatory fields</Text>
+              <Text style={styles.mandtxtsub}>{finalmsg}</Text>
+              <FormPolicyField
+                onChange={() => setcheckbox(!checkbox)}
+                value={checkbox}
+                msg={showmsg}
+              />
+              <FormSubmitButton title={"Register"} />
+              <View style={styles.seprator} />
+            </Forms>
+          </ScrollView>
+        </View>
+      </KeyboardAwareScrollView>
     </SafeAreaComp>
   );
 };
@@ -147,7 +151,7 @@ const styles = StyleSheet.create({
   },
   headerContent: {
     width: "100%",
-    height: "13%",
+    height: h("13%"),
     display: "flex",
     alignItems: "center",
     justifyContent: "space-evenly",
@@ -183,27 +187,5 @@ const styles = StyleSheet.create({
     width: w("87%"),
     alignSelf: "center",
     marginVertical: h("2%"),
-  },
-  checkbox: {
-    width: h("2.5%"),
-    height: h("2.5%"),
-    borderWidth: 1,
-    borderColor: "#94A3BE",
-    borderRadius: h("0.5%"),
-    marginRight: 10,
-  },
-  checkboxContainer: {
-    width: w("88%"),
-    display: "flex",
-    alignSelf: "center",
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
-    flexDirection: "row",
-    overflow: "hidden",
-    marginVertical: h("2%"),
-  },
-  checkboxtxt: {
-    width: "80%",
-    fontSize: h("1.9%"),
   },
 });

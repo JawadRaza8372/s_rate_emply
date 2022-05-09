@@ -3,10 +3,11 @@ import React from "react";
 import { useFormikContext } from "formik";
 import ErrorMessage from "./ErrorMessage";
 import CustomInput from "../CustomInput";
+import { w, h } from "react-native-responsiveness";
 const InputFieldForms = ({ title, name, placeholder, ...otherProps }) => {
   const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
   return (
-    <View>
+    <View style={styles.phonetxt}>
       <CustomInput
         title={title ? title : name}
         placeholder={placeholder}
@@ -23,3 +24,12 @@ const InputFieldForms = ({ title, name, placeholder, ...otherProps }) => {
 };
 
 export default InputFieldForms;
+const styles = StyleSheet.create({
+  phonetxt: {
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    width: w("88%"),
+    alignSelf: "center",
+  },
+});

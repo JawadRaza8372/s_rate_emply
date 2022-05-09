@@ -35,21 +35,23 @@ const Profile = () => {
         end={{ x: 1, y: 0 }}
         style={styles.DStrip}
       >
-        <View style={styles.leftBarContainer}>
-          <Text style={styles.Credittext}>Your Credit are: 100</Text>
-        </View>
+        <TouchableOpacity style={styles.CreditButton}>
+          <View style={styles.leftBarContainer}>
+            <Text style={styles.Credittext}>Your Credit are: 100</Text>
+          </View>
 
-        <View style={styles.RightContainer}>
-          <Ionicons
-            name={"arrow-forward-outline"}
-            size={h("3%")}
-            color={mainColor}
-          />
-        </View>
+          <View style={styles.RightContainer}>
+            <Ionicons
+              name={"arrow-forward-outline"}
+              size={h("3%")}
+              color={mainColor}
+            />
+          </View>
+        </TouchableOpacity>
       </LinearGradient>
 
       {/* Strips 1 */}
-      <View style={[styles.DStrip2, { marginTop: h("4%") }]}>
+      <TouchableOpacity style={[styles.DStrip2, { marginTop: h("4%") }]}>
         <View style={styles.RightContainer2}>
           <Image
             style={styles.ImgIcon}
@@ -67,18 +69,18 @@ const Profile = () => {
             color={mainColor}
           />
         </View>
-      </View>
+      </TouchableOpacity>
       {/* Strips 1 */}
       {/* Strips 2 */}
-      <View style={styles.DStrip2}>
+      <TouchableOpacity style={styles.DStrip2}>
         <View style={styles.RightContainer2}>
           <Image
             style={styles.ImgIcon}
-            source={require("../../../assets/ig1.png")}
+            source={require("../../../assets/ig2.png")}
           />
         </View>
         <View style={styles.leftBarContainer2}>
-          <Text style={styles.Credittext2}>Personal work and Info</Text>
+          <Text style={styles.Credittext2}>S-Rate Cards</Text>
         </View>
 
         <View style={styles.RightContainer}>
@@ -88,18 +90,18 @@ const Profile = () => {
             color={mainColor}
           />
         </View>
-      </View>
+      </TouchableOpacity>
       {/* Strips 2 */}
       {/* Strips 3 */}
-      <View style={styles.DStrip2}>
+      <TouchableOpacity style={styles.DStrip2}>
         <View style={styles.RightContainer2}>
           <Image
             style={styles.ImgIcon}
-            source={require("../../../assets/ig1.png")}
+            source={require("../../../assets/ig3.png")}
           />
         </View>
         <View style={styles.leftBarContainer2}>
-          <Text style={styles.Credittext2}>Personal work and Info</Text>
+          <Text style={styles.Credittext2}>Transaction History</Text>
         </View>
 
         <View style={styles.RightContainer}>
@@ -109,18 +111,18 @@ const Profile = () => {
             color={mainColor}
           />
         </View>
-      </View>
+      </TouchableOpacity>
       {/* Strips 3 */}
       {/* Strips 4 */}
-      <View style={styles.DStrip2}>
+      <TouchableOpacity style={styles.DStrip2}>
         <View style={styles.RightContainer2}>
           <Image
             style={styles.ImgIcon}
-            source={require("../../../assets/ig1.png")}
+            source={require("../../../assets/ig4.png")}
           />
         </View>
         <View style={styles.leftBarContainer2}>
-          <Text style={styles.Credittext2}>Personal work and Info</Text>
+          <Text style={styles.Credittext2}>Consents</Text>
         </View>
 
         <View style={styles.RightContainer}>
@@ -130,7 +132,7 @@ const Profile = () => {
             color={mainColor}
           />
         </View>
-      </View>
+      </TouchableOpacity>
       {/* Strips 4 */}
     </View>
   );
@@ -183,11 +185,6 @@ const styles = StyleSheet.create({
   DStrip: {
     width: "100%",
     height: h("6%"),
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingLeft: h("2.2%"),
-    marginTop: h("4%"),
   },
   DStrip2: {
     width: "100%",
@@ -206,10 +203,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   leftBarContainer2: {
-    width: "55%",
+    width: "70%",
     height: "100%",
     justifyContent: "center",
-    alignItems: "center",
+    // alignItems: "center",
+    // backgroundColor: "red",
   },
   RightContainer: {
     width: "10%",
@@ -222,11 +220,20 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
+    paddingRight: h("1%"),
   },
   ImgIcon: {
     width: "70%",
     height: "70%",
     resizeMode: "contain",
+  },
+  CreditButton: {
+    width: "100%",
+    height: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingLeft: h("2.2%"),
   },
 });
 

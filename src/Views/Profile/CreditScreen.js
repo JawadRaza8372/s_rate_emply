@@ -5,13 +5,16 @@ import { LinearGradient } from "expo-linear-gradient";
 import { mainColor, screenBg } from "../../AppColors";
 import { Ionicons } from "@expo/vector-icons";
 import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
+import Header from "../../Components/CommonComponents/Header";
 
-const CreditScreen = () => {
+const CreditScreen = ({ navigation }) => {
   return (
     <SafeAreaComp>
-      <View>
-        <Text>CreditScreen</Text>
-      </View>
+      <Header
+        onPress={() => {
+          navigation.goBack();
+        }}
+      />
     </SafeAreaComp>
   );
 };

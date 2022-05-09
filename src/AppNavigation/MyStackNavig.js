@@ -27,12 +27,6 @@ export default function MyStackNavig() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="SplashScreen"
-          component={SplashScreen}
-          options={{ headerShown: false }}
-        />
-
         {/* Profile Screens */}
         <Stack.Screen
           name="Profile"
@@ -51,6 +45,11 @@ export default function MyStackNavig() {
         />
         {/*  Profile Screens */}
 
+        <Stack.Screen
+          name="SplashScreen"
+          component={SplashScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="SplashScreenSec"
           component={SplashScreenSec}

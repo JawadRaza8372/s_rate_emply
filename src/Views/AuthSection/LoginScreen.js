@@ -30,9 +30,8 @@ const LoginScreen = ({ navigation }) => {
     <SafeAreaComp>
       <View style={styles.header}>
         <ImageBackground
-          source={require("../../../assets/Background.png")}
+          source={require("../../../assets/TopProfile.png")}
           style={styles.imgshow}
-          resizeMode="cover"
         >
           <View style={styles.headerimgcont}>
             <Image
@@ -82,24 +81,19 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
   header: {
-    width: w("120%"),
+    width: w("100%"),
     height: h("30%"),
-    backgroundColor: mainColor,
-    borderBottomLeftRadius: w("80%"),
-    borderBottomRightRadius: w("80%"),
+
     overflow: "hidden",
     alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
   },
   imgshow: {
-    width: w("150%"),
+    width: w("100%"),
     height: h("30%"),
-    resizeMode: "cover",
-    position: "relative",
   },
   headerimgcont: {
-    position: "absolute",
-    left: w("10%"),
-    right: w("10%"),
     width: w("100%"),
     height: h("30%"),
     display: "flex",

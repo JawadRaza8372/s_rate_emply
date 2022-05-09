@@ -20,12 +20,20 @@ import WelcomeScreen from "../Views/AuthSection/WelcomeScreen";
 // Profile Screens
 import Profile from "../Views/Profile/Profile";
 import CreditScreen from "../Views/Profile/CreditScreen";
+import PersonalInfo from "../Views/Profile/PersonalInfo";
 
 const Stack = createStackNavigator();
 export default function MyStackNavig() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="SplashScreen"
+          component={SplashScreen}
+          options={{ headerShown: false }}
+        />
+
+        {/* Profile Screens */}
         <Stack.Screen
           name="Profile"
           component={Profile}
@@ -37,10 +45,12 @@ export default function MyStackNavig() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="SplashScreen"
-          component={SplashScreen}
+          name="PersonalInfo"
+          component={PersonalInfo}
           options={{ headerShown: false }}
         />
+        {/*  Profile Screens */}
+
         <Stack.Screen
           name="SplashScreenSec"
           component={SplashScreenSec}

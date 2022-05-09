@@ -58,7 +58,12 @@ const Profile = ({ navigation }) => {
         </LinearGradient>
 
         {/* Strips 1 */}
-        <TouchableOpacity style={[styles.DStrip2, { marginTop: h("4%") }]}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("PersonalInfo");
+          }}
+          style={[styles.DStrip2, { marginTop: h("4%") }]}
+        >
           <View style={styles.RightContainer2}>
             <Image
               style={styles.ImgIcon}

@@ -19,6 +19,7 @@ import WelcomeScreen from "../Views/AuthSection/WelcomeScreen";
 
 // Profile Screens
 import Profile from "../Views/Profile/Profile";
+import CreditScreen from "../Views/Profile/CreditScreen";
 
 const Stack = createStackNavigator();
 export default function MyStackNavig() {
@@ -28,6 +29,11 @@ export default function MyStackNavig() {
         <Stack.Screen
           name="Profile"
           component={Profile}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CreditScreen"
+          component={CreditScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen

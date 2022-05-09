@@ -4,40 +4,69 @@ import { w, h } from "react-native-responsiveness";
 import { LinearGradient } from "expo-linear-gradient";
 import { mainColor, screenBg } from "../../AppColors";
 import { Ionicons } from "@expo/vector-icons";
+import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
 
-const Profile = () => {
+const Profile = ({ navigation }) => {
   return (
-    <View style={styles.MainContainer}>
-      <View style={styles.TopHeader}>
-        <Image
-          style={{ width: "100%", height: "80%", resizeMode: "cover" }}
-          source={require("../../../assets/TopProfile.png")}
-        />
-      </View>
+    <SafeAreaComp>
+      <View style={styles.MainContainer}>
+        <View style={styles.TopHeader}>
+          <Image
+            style={{ width: "100%", height: "80%", resizeMode: "cover" }}
+            source={require("../../../assets/TopProfile.png")}
+          />
+        </View>
 
-      <TouchableOpacity style={styles.SignOutButton}>
-        <Text style={styles.SignoutText}>Sign out</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.SignOutButton}>
+          <Text style={styles.SignoutText}>Sign out</Text>
+        </TouchableOpacity>
 
-      <View style={styles.ImageContainer}>
-        <Image
-          style={{ width: "100%", height: "80%", resizeMode: "contain" }}
-          source={require("../../../assets/profileImage.png")}
-        />
-      </View>
+        <View style={styles.ImageContainer}>
+          <Image
+            style={{ width: "100%", height: "80%", resizeMode: "contain" }}
+            source={require("../../../assets/profileImage.png")}
+          />
+        </View>
 
-      <Text style={styles.NameText}>DJones</Text>
+        <Text style={styles.NameText}>DJones</Text>
 
-      <LinearGradient
-        // Button Linear Gradient
-        colors={["#DABE9C", "#F2D2A3", "#DABE9C"]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 0 }}
-        style={styles.DStrip}
-      >
-        <TouchableOpacity style={styles.CreditButton}>
-          <View style={styles.leftBarContainer}>
-            <Text style={styles.Credittext}>Your Credit are: 100</Text>
+        <LinearGradient
+          // Button Linear Gradient
+          colors={["#DABE9C", "#F2D2A3", "#DABE9C"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          style={styles.DStrip}
+        >
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("CreditScreen");
+            }}
+            style={styles.CreditButton}
+          >
+            <View style={styles.leftBarContainer}>
+              <Text style={styles.Credittext}>Your Credit are: 100</Text>
+            </View>
+
+            <View style={styles.RightContainer}>
+              <Ionicons
+                name={"arrow-forward-outline"}
+                size={h("3%")}
+                color={mainColor}
+              />
+            </View>
+          </TouchableOpacity>
+        </LinearGradient>
+
+        {/* Strips 1 */}
+        <TouchableOpacity style={[styles.DStrip2, { marginTop: h("4%") }]}>
+          <View style={styles.RightContainer2}>
+            <Image
+              style={styles.ImgIcon}
+              source={require("../../../assets/ig1.png")}
+            />
+          </View>
+          <View style={styles.leftBarContainer2}>
+            <Text style={styles.Credittext2}>Personal work and Info</Text>
           </View>
 
           <View style={styles.RightContainer}>
@@ -48,93 +77,72 @@ const Profile = () => {
             />
           </View>
         </TouchableOpacity>
-      </LinearGradient>
+        {/* Strips 1 */}
+        {/* Strips 2 */}
+        <TouchableOpacity style={styles.DStrip2}>
+          <View style={styles.RightContainer2}>
+            <Image
+              style={styles.ImgIcon}
+              source={require("../../../assets/ig2.png")}
+            />
+          </View>
+          <View style={styles.leftBarContainer2}>
+            <Text style={styles.Credittext2}>S-Rate Cards</Text>
+          </View>
 
-      {/* Strips 1 */}
-      <TouchableOpacity style={[styles.DStrip2, { marginTop: h("4%") }]}>
-        <View style={styles.RightContainer2}>
-          <Image
-            style={styles.ImgIcon}
-            source={require("../../../assets/ig1.png")}
-          />
-        </View>
-        <View style={styles.leftBarContainer2}>
-          <Text style={styles.Credittext2}>Personal work and Info</Text>
-        </View>
+          <View style={styles.RightContainer}>
+            <Ionicons
+              name={"arrow-forward-outline"}
+              size={h("3%")}
+              color={mainColor}
+            />
+          </View>
+        </TouchableOpacity>
+        {/* Strips 2 */}
+        {/* Strips 3 */}
+        <TouchableOpacity style={styles.DStrip2}>
+          <View style={styles.RightContainer2}>
+            <Image
+              style={styles.ImgIcon}
+              source={require("../../../assets/ig3.png")}
+            />
+          </View>
+          <View style={styles.leftBarContainer2}>
+            <Text style={styles.Credittext2}>Transaction History</Text>
+          </View>
 
-        <View style={styles.RightContainer}>
-          <Ionicons
-            name={"arrow-forward-outline"}
-            size={h("3%")}
-            color={mainColor}
-          />
-        </View>
-      </TouchableOpacity>
-      {/* Strips 1 */}
-      {/* Strips 2 */}
-      <TouchableOpacity style={styles.DStrip2}>
-        <View style={styles.RightContainer2}>
-          <Image
-            style={styles.ImgIcon}
-            source={require("../../../assets/ig2.png")}
-          />
-        </View>
-        <View style={styles.leftBarContainer2}>
-          <Text style={styles.Credittext2}>S-Rate Cards</Text>
-        </View>
+          <View style={styles.RightContainer}>
+            <Ionicons
+              name={"arrow-forward-outline"}
+              size={h("3%")}
+              color={mainColor}
+            />
+          </View>
+        </TouchableOpacity>
+        {/* Strips 3 */}
+        {/* Strips 4 */}
+        <TouchableOpacity style={styles.DStrip2}>
+          <View style={styles.RightContainer2}>
+            <Image
+              style={styles.ImgIcon}
+              source={require("../../../assets/ig4.png")}
+            />
+          </View>
+          <View style={styles.leftBarContainer2}>
+            <Text style={styles.Credittext2}>Consents</Text>
+          </View>
 
-        <View style={styles.RightContainer}>
-          <Ionicons
-            name={"arrow-forward-outline"}
-            size={h("3%")}
-            color={mainColor}
-          />
-        </View>
-      </TouchableOpacity>
-      {/* Strips 2 */}
-      {/* Strips 3 */}
-      <TouchableOpacity style={styles.DStrip2}>
-        <View style={styles.RightContainer2}>
-          <Image
-            style={styles.ImgIcon}
-            source={require("../../../assets/ig3.png")}
-          />
-        </View>
-        <View style={styles.leftBarContainer2}>
-          <Text style={styles.Credittext2}>Transaction History</Text>
-        </View>
-
-        <View style={styles.RightContainer}>
-          <Ionicons
-            name={"arrow-forward-outline"}
-            size={h("3%")}
-            color={mainColor}
-          />
-        </View>
-      </TouchableOpacity>
-      {/* Strips 3 */}
-      {/* Strips 4 */}
-      <TouchableOpacity style={styles.DStrip2}>
-        <View style={styles.RightContainer2}>
-          <Image
-            style={styles.ImgIcon}
-            source={require("../../../assets/ig4.png")}
-          />
-        </View>
-        <View style={styles.leftBarContainer2}>
-          <Text style={styles.Credittext2}>Consents</Text>
-        </View>
-
-        <View style={styles.RightContainer}>
-          <Ionicons
-            name={"arrow-forward-outline"}
-            size={h("3%")}
-            color={mainColor}
-          />
-        </View>
-      </TouchableOpacity>
-      {/* Strips 4 */}
-    </View>
+          <View style={styles.RightContainer}>
+            <Ionicons
+              name={"arrow-forward-outline"}
+              size={h("3%")}
+              color={mainColor}
+            />
+          </View>
+        </TouchableOpacity>
+        {/* Strips 4 */}
+      </View>
+    </SafeAreaComp>
   );
 };
 

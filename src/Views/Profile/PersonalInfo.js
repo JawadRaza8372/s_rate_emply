@@ -63,98 +63,163 @@ const PersonalInfo = ({ navigation }) => {
           </View>
           {/* Top header  */}
 
-          {/* Profile Screen 1 */}
-          <TouchableOpacity
-            onPress={() => {
-              setEdit(!Edit);
-            }}
-            style={styles.leftHeader}
-          >
-            <View style={styles.RightContainer2}>
-              <Image
-                style={styles.ImgIcon}
-                source={require("../../../assets/ig1.png")}
-              />
-            </View>
-            <Text>Edit info</Text>
-          </TouchableOpacity>
-
-          {/* Profile */}
-          <View style={styles.ImageContainer}>
-            <Image
-              style={{ width: "100%", height: "100%", resizeMode: "contain" }}
-              source={require("../../../assets/profileImage.png")}
-            />
-
-            {Edit && (
-              <TouchableOpacity style={styles.icon}>
-                <Ionicons name={"trash"} size={h("3%")} color={mainColor} />
+          {Active === true ? (
+            <>
+              {/* Profile Screen 1 */}
+              <TouchableOpacity
+                onPress={() => {
+                  setEdit(!Edit);
+                }}
+                style={styles.leftHeader}
+              >
+                <View style={styles.RightContainer2}>
+                  <Image
+                    style={styles.ImgIcon}
+                    source={require("../../../assets/ig1.png")}
+                  />
+                </View>
+                <Text>Edit info</Text>
               </TouchableOpacity>
-            )}
-            {Edit && (
-              <View style={styles.BGText}>
-                <Text style={styles.ProfileText}>
-                  Upload your profile picture for guests to identify you{" "}
-                </Text>
+
+              {/* Profile */}
+              <View style={styles.ImageContainer}>
+                <Image
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    resizeMode: "contain",
+                  }}
+                  source={require("../../../assets/profileImage.png")}
+                />
+
+                {Edit && (
+                  <TouchableOpacity style={styles.icon}>
+                    <Ionicons name={"trash"} size={h("3%")} color={mainColor} />
+                  </TouchableOpacity>
+                )}
+                {Edit && (
+                  <View style={styles.BGText}>
+                    <Text style={styles.ProfileText}>
+                      Upload your profile picture for guests to identify you{" "}
+                    </Text>
+                  </View>
+                )}
               </View>
-            )}
-          </View>
-          {/* Profile */}
+              {/* Profile */}
 
-          {/* Detail Foam */}
-          {Edit === true ? (
-            <View style={styles.DetailsFoam}>
-              {/* Details 1 */}
-              <Text style={styles.Name1}>First name*</Text>
-              <TextInput placeholder="Denis" style={styles.TextInput} />
-              {/* Details 1 */}
-              {/* Details 1 */}
-              <Text style={styles.Name1}>Last name*</Text>
-              <TextInput placeholder="Denis" style={styles.TextInput} />
-              {/* Details 1 */}
-              {/* Details 1 */}
-              <Text style={styles.Name1}>Nickname*</Text>
-              <TextInput placeholder="Denis" style={styles.TextInput} />
-              {/* Details 1 */}
-              <Text style={styles.Name1}>Email*</Text>
-              <Text style={styles.Name3}>joneskemail.com</Text>
-              {/* Details 1 */}
-              <Text style={styles.Name1}>Password*</Text>
-              <TextInput placeholder="********" style={styles.TextInput} />
-              {/* Details 1 */}
-            </View>
+              {/* Detail Foam */}
+              {Edit === true ? (
+                <View style={styles.DetailsFoam}>
+                  {/* Details 1 */}
+                  <Text style={styles.Name1}>First name*</Text>
+                  <TextInput placeholder="Denis" style={styles.TextInput} />
+                  {/* Details 1 */}
+                  {/* Details 1 */}
+                  <Text style={styles.Name1}>Last name*</Text>
+                  <TextInput placeholder="Denis" style={styles.TextInput} />
+                  {/* Details 1 */}
+                  {/* Details 1 */}
+                  <Text style={styles.Name1}>Nickname*</Text>
+                  <TextInput placeholder="Denis" style={styles.TextInput} />
+                  {/* Details 1 */}
+                  <Text style={styles.Name1}>Email*</Text>
+                  <Text style={styles.Name3}>joneskemail.com</Text>
+                  {/* Details 1 */}
+                  <Text style={styles.Name1}>Password*</Text>
+                  <TextInput placeholder="********" style={styles.TextInput} />
+                  {/* Details 1 */}
+                </View>
+              ) : (
+                <View style={styles.DetailsFoam}>
+                  {/* Details 1 */}
+                  <Text style={styles.Name1}>First name*</Text>
+                  <Text style={styles.Name2}>Denis</Text>
+                  {/* Details 1 */}
+                  {/* Details 1 */}
+                  <Text style={styles.Name1}>Last name*</Text>
+                  <Text style={styles.Name2}>Jones</Text>
+                  {/* Details 1 */}
+                  {/* Details 1 */}
+                  <Text style={styles.Name1}>Nickname*</Text>
+                  <Text style={styles.Name2}>DJones</Text>
+                  {/* Details 1 */}
+                  {/* Details 1 */}
+                  <Text style={styles.Name1}>Email*</Text>
+                  <Text style={styles.Name3}>joneskemail.com</Text>
+                  {/* Details 1 */}
+
+                  {/* Details 1 */}
+                  <Text style={styles.Name1}>Password*</Text>
+                  <Text style={styles.Name2}>********</Text>
+                  {/* Details 1 */}
+                </View>
+              )}
+              {/* Profile Screen 1 */}
+            </>
           ) : (
-            <View style={styles.DetailsFoam}>
-              {/* Details 1 */}
-              <Text style={styles.Name1}>First name*</Text>
-              <Text style={styles.Name2}>Denis</Text>
-              {/* Details 1 */}
-              {/* Details 1 */}
-              <Text style={styles.Name1}>Last name*</Text>
-              <Text style={styles.Name2}>Jones</Text>
-              {/* Details 1 */}
-              {/* Details 1 */}
-              <Text style={styles.Name1}>Nickname*</Text>
-              <Text style={styles.Name2}>DJones</Text>
-              {/* Details 1 */}
-              {/* Details 1 */}
-              <Text style={styles.Name1}>Email*</Text>
-              <Text style={styles.Name3}>joneskemail.com</Text>
-              {/* Details 1 */}
+            <View style={styles.ComapnyBox}>
+              <Text style={styles.CompanyText}>Company</Text>
+              {/* box1 */}
+              <View style={styles.HotelBox}>
+                <Text style={styles.HotelText}>
+                  Tropical Hotel Thessaloniki
+                </Text>
+                <Ionicons
+                  name={"close-circle"}
+                  size={h("3%")}
+                  color={mainColor}
+                />
+              </View>
+              {/* box1 */}
 
-              {/* Details 1 */}
-              <Text style={styles.Name1}>Password*</Text>
-              <Text style={styles.Name2}>********</Text>
-              {/* Details 1 */}
+              <Text style={[styles.CompanyText, { marginTop: h("2%") }]}>
+                Positions
+              </Text>
+
+              {/* box2 */}
+              <View style={styles.HotelBox2}>
+                <View style={styles.leftbox}>
+                  <Text style={styles.HeaderText}>Positions:</Text>
+                  <Text style={styles.SubHeaderText}>waiter</Text>
+                  <Text style={[styles.HeaderText, { marginTop: h("3%") }]}>
+                    Departments:
+                  </Text>
+                  <Text style={styles.SubHeaderText}>Tropical Restaurant</Text>
+                  <Text style={styles.SubHeaderText}>Dinner Restaurant</Text>
+                  <Text style={styles.SubHeaderText}>Entrance Cafe</Text>
+                </View>
+                <View style={styles.Rightbox}>
+                  <Ionicons
+                    name={"close-circle"}
+                    size={h("3%")}
+                    color={mainColor}
+                  />
+                </View>
+              </View>
+
+              {/* box2 */}
+              {/* box2 */}
+              <View style={[styles.HotelBox3, { marginTop: h("2%") }]}>
+                <View style={styles.leftbox}>
+                  <Text style={styles.HeaderText}>Positions:</Text>
+                  <Text style={styles.SubHeaderText}>Barista</Text>
+                  <Text style={[styles.HeaderText, { marginTop: h("2%") }]}>
+                    Departments:
+                  </Text>
+                  <Text style={styles.SubHeaderText}>Dinner Restaurant</Text>
+                </View>
+                <View style={styles.Rightbox}>
+                  <Ionicons
+                    name={"close-circle"}
+                    size={h("3%")}
+                    color={mainColor}
+                  />
+                </View>
+              </View>
+
+              {/* box2 */}
             </View>
           )}
-
-          {/* Detail Foam */}
-          {/* Detail Foam */}
-
-          {/* Detail Foam */}
-
-          {/* Profile Screen 1 */}
         </View>
       </ScrollView>
     </SafeAreaComp>
@@ -304,5 +369,84 @@ const styles = StyleSheet.create({
     borderColor: "#0003",
     borderBottomWidth: h("0.2%"),
     fontSize: h("2.2%"),
+  },
+  ComapnyBox: {
+    // backgroundColor: "red",
+    width: "90%",
+    height: h("80%"),
+    alignSelf: "center",
+    paddingTop: h("2%"),
+  },
+  CompanyText: {
+    color: mainColor,
+    fontSize: h("3%"),
+    fontWeight: "bold",
+  },
+  HotelBox: {
+    backgroundColor: "#0003",
+    width: "105%",
+    height: h("5%"),
+    alignSelf: "center",
+    borderRadius: h("100%"),
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingLeft: h("2%"),
+    paddingRight: h("2%"),
+    marginTop: h("1%"),
+  },
+  HotelBox2: {
+    backgroundColor: "#0003",
+    width: "105%",
+    height: h("30%"),
+    alignSelf: "center",
+    borderRadius: h("2%"),
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+
+    marginTop: h("1%"),
+    overflow: "hidden",
+  },
+  HotelBox3: {
+    backgroundColor: "#0003",
+    width: "105%",
+    height: h("20%"),
+    alignSelf: "center",
+    borderRadius: h("2%"),
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+
+    marginTop: h("1%"),
+    overflow: "hidden",
+  },
+  HotelText: {
+    color: mainColor,
+    fontSize: h("2%"),
+    fontWeight: "bold",
+  },
+  leftbox: {
+    // backgroundColor: "red",
+    width: "80%",
+    height: "100%",
+    paddingLeft: h("2%"),
+    paddingTop: h("2%"),
+  },
+  Rightbox: {
+    // backgroundColor: "green",
+    width: "20%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  HeaderText: {
+    color: mainColor,
+    fontSize: h("2%"),
+  },
+  SubHeaderText: {
+    color: "#202442",
+    fontSize: h("3%"),
+    fontWeight: "bold",
   },
 });

@@ -23,14 +23,15 @@ import CreditScreen from "../Views/Profile/CreditScreen";
 import PersonalInfo from "../Views/Profile/PersonalInfo";
 import RankingScreen from "../Views/RankingSection/RankingScreen";
 import TopRankingScreen from "../Views/RankingSection/TopRankingScreen";
+import DashbordScreen from "../Views/DashbordScreen/DashbordScreen";
 const Stack = createStackNavigator();
 export default function MyStackNavig() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="RankingScreen"
-          component={RankingScreen}
+          name="DashbordScreen"
+          component={DashbordScreen}
           options={{ headerShown: false }}
         />
 
@@ -109,11 +110,11 @@ export default function MyStackNavig() {
           options={{ headerShown: false }}
         />
         {/*Ranking Screen */}
-        {/* <Stack.Screen
+        <Stack.Screen
           name="RankingScreen"
           component={RankingScreen}
           options={{ headerShown: false }}
-        /> */}
+        />
         <Stack.Screen
           name="TopRankingScreen"
           component={TopRankingScreen}

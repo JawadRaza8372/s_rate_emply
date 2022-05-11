@@ -21,6 +21,7 @@ import WelcomeScreen from "../Views/AuthSection/WelcomeScreen";
 import Profile from "../Views/Profile/Profile";
 import CreditScreen from "../Views/Profile/CreditScreen";
 import PersonalInfo from "../Views/Profile/PersonalInfo";
+import SCard from "../Views/Profile/SCard";
 
 const Stack = createStackNavigator();
 export default function MyStackNavig() {
@@ -41,6 +42,11 @@ export default function MyStackNavig() {
         <Stack.Screen
           name="PersonalInfo"
           component={PersonalInfo}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SCard"
+          component={SCard}
           options={{ headerShown: false }}
         />
         {/*  Profile Screens */}

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-
+import { w, h } from "react-native-responsiveness";
 const ErrorMessage = ({ error, visible }) => {
   if (!visible || !error) return null;
 
@@ -11,10 +11,9 @@ const styles = StyleSheet.create({
   error: {
     color: "red",
     marginTop: 5,
-    textAlign: "center",
+    // width: w("88%"),
     fontSize: 14,
     fontWeight: "bold",
-    alignSelf: "center",
   },
 });
 

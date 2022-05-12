@@ -10,7 +10,7 @@ import { w, h } from "react-native-responsiveness";
 import { mainColor, screenBg } from "../../AppColors";
 import { LinearGradient } from "expo-linear-gradient";
 
-const CustomAuthBtn = ({ title, bgColor, onClick }) => {
+const CustomAuthBtn = ({ title, onClick }) => {
   const [isLoadinCheck, setisLoadinCheck] = useState(false);
   const onClickFun = async () => {
     setisLoadinCheck(true);

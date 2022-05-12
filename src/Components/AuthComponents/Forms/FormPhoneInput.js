@@ -5,7 +5,7 @@ import PhoneInput from "react-native-phone-number-input";
 import { w, h } from "react-native-responsiveness";
 import { useFormikContext } from "formik";
 import { screenBg, stopColor } from "../../../AppColors";
-const FormPhoneInput = ({ title, name, placeholder, ...otherProps }) => {
+const FormPhoneInput = ({ title, name, ...otherProps }) => {
   const phoneInput = useRef();
   const [showMessage, setShowMessage] = useState(false);
   const { setFieldTouched, handleChange, errors, touched } = useFormikContext();

@@ -6,44 +6,60 @@ import CustomAuthBtn from "../../Components/AuthComponents/CustomAuthBtn";
 import { mainColor, secColor } from "../../AppColors";
 import { w, h } from "react-native-responsiveness";
 import ErrorMessage from "../../Components/AuthComponents/Forms/ErrorMessage";
+import { KeyboardAwareScrollView } from "@codler/react-native-keyboard-aware-scroll-view";
+
 const OtpScreen = ({ navigation }) => {
   let otpInput = useRef(null);
   const [otptext, setotptext] = useState("");
+  const [showerrorMsg, setshowerrorMsg] = useState(false);
+  const [errorMsg, seterrorMsg] = useState("Wrong Pin");
   const onSubmitFun = () => {
-    navigation.navigate("RegistrationSuccess");
+    if (otptext.length === 5) {
+      setshowerrorMsg(false);
+      navigation.navigate("RegistrationSuccess");
+    } else {
+      setshowerrorMsg(true);
+      seterrorMsg("Please enter a valid pin.");
+    }
   };
   return (
     <SafeAreaComp>
-      <View style={styles.otpsection}>
-        <Text style={styles.maintext}>Almost there!</Text>
-        <Text style={styles.subtext}>
-          Enter the PIN number that we sent to the email you entered
-        </Text>
-        <View style={styles.otpview}>
-          <OTPTextInput
-            ref={(e) => (otpInput = e)}
-            handleTextChange={(text) => setotptext(text)}
-            tintColor={"#94A3BE"}
-            offTintColor={"#94A3BE"}
-            inputCount={5}
-            textInputStyle={{ color: "red" }}
+      <KeyboardAwareScrollView>
+        <View style={styles.otpsection}>
+          <Text style={styles.maintext}>Almost there!</Text>
+          <Text style={styles.subtext}>
+            Enter the PIN number that we sent to the email you entered
+          </Text>
+          <View style={styles.otpview}>
+            <OTPTextInput
+              ref={(e) => (otpInput = e)}
+              handleTextChange={(text) => setotptext(text)}
+              tintColor={"#94A3BE"}
+              offTintColor={"#94A3BE"}
+              inputCount={5}
+              textInputStyle={{ color: "red" }}
+            />
+            {showerrorMsg && (
+              <View style={styles.errordiv}>
+                <ErrorMessage error={errorMsg} visible={true} />
+              </View>
+            )}
+          </View>
+          <CustomAuthBtn
+            bgColor={secColor}
+            title={"Submit"}
+            onClick={onSubmitFun}
           />
-          <ErrorMessage error={"Wrong Pin"} visible={true} />
+          <View style={styles.resend}>
+            <Text style={styles.firstsubtext}>Didn’t you receive the PIN?</Text>
+            <Text style={styles.secmaintext}>Resend PIN</Text>
+          </View>
+          <Text style={{ ...styles.subtext, fontWeight: "bold" }}>
+            PIN was resent to your email address. Please check!
+          </Text>
+          {/* <Button title="clear" onClick={clearText} /> */}
         </View>
-        <CustomAuthBtn
-          bgColor={secColor}
-          title={"Submit"}
-          onClick={onSubmitFun}
-        />
-        <View style={styles.resend}>
-          <Text style={styles.firstsubtext}>Didn’t you receive the PIN?</Text>
-          <Text style={styles.secmaintext}>Resend PIN</Text>
-        </View>
-        <Text style={{ ...styles.subtext, fontWeight: "bold" }}>
-          PIN was resent to your email address. Please check!
-        </Text>
-        {/* <Button title="clear" onClick={clearText} /> */}
-      </View>
+      </KeyboardAwareScrollView>
     </SafeAreaComp>
   );
 };
@@ -94,5 +110,12 @@ const styles = StyleSheet.create({
     width: "80%",
     marginVertical: h("6%"),
     alignSelf: "center",
+  },
+  errordiv: {
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginVertical: h("1%"),
   },
 });

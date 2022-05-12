@@ -3,6 +3,8 @@ import React from "react";
 import CustomPaswdInput from "../CustomPaswdInput";
 import { useFormikContext } from "formik";
 import ErrorMessage from "./ErrorMessage";
+import { w, h } from "react-native-responsiveness";
+
 const PasswordInputFieldForm = ({
   title,
   name,
@@ -12,7 +14,7 @@ const PasswordInputFieldForm = ({
   const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
 
   return (
-    <View>
+    <View style={styles.phonetxt}>
       <CustomPaswdInput
         title={title ? title : name}
         placeholder={placeholder}
@@ -30,4 +32,12 @@ const PasswordInputFieldForm = ({
 
 export default PasswordInputFieldForm;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  phonetxt: {
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    width: w("88%"),
+    alignSelf: "center",
+  },
+});

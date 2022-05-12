@@ -24,104 +24,110 @@ import PersonalInfo from "../Views/Profile/PersonalInfo";
 import RankingScreen from "../Views/RankingSection/RankingScreen";
 import TopRankingScreen from "../Views/RankingSection/TopRankingScreen";
 import DashbordScreen from "../Views/DashbordScreen/DashbordScreen";
+import MainDashbordScreen from "../Views/MainDashbordScreen/MainDashbordScreen";
 const Stack = createStackNavigator();
 export default function MyStackNavig() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="DashbordScreen"
-          component={DashbordScreen}
-          options={{ headerShown: false }}
-        />
+	return (
+		<NavigationContainer>
+			<Stack.Navigator>
+				<Stack.Screen
+					name='DashbordScreen'
+					component={MainDashbordScreen}
+					options={{ headerShown: false }}
+				/>
 
-        <Stack.Screen
-          name="SplashScreen"
-          component={SplashScreen}
-          options={{ headerShown: false }}
-        />
+				<Stack.Screen
+					name='SplashScreen'
+					component={SplashScreen}
+					options={{ headerShown: false }}
+				/>
 
-        {/* Profile Screens */}
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="CreditScreen"
-          component={CreditScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="PersonalInfo"
-          component={PersonalInfo}
-          options={{ headerShown: false }}
-        />
-        {/*  Profile Screens */}
+				{/* Profile Screens */}
+				<Stack.Screen
+					name='Profile'
+					component={Profile}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='CreditScreen'
+					component={CreditScreen}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='PersonalInfo'
+					component={PersonalInfo}
+					options={{ headerShown: false }}
+				/>
+				{/*  Profile Screens */}
 
-        <Stack.Screen
-          name="SplashScreenSec"
-          component={SplashScreenSec}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="AuthSelection"
-          component={AuthSelection}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="WelcomScren"
-          component={WelcomeScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="LoginScreen"
-          component={LoginScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="RegisterScreen"
-          component={RegisterScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="OtpScreen"
-          component={OtpScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="FailedScreen"
-          component={FailedScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="SuccessScreen"
-          component={SuccessScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="RegistrationSuccess"
-          component={RegistrationSuccess}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ForgotPasswordScreen"
-          component={ForgotPasswordScreen}
-          options={{ headerShown: false }}
-        />
-        {/*Ranking Screen */}
-        <Stack.Screen
-          name="RankingScreen"
-          component={RankingScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="TopRankingScreen"
-          component={TopRankingScreen}
-          options={{ headerShown: false }}
-        />
-        {/*Ranking Screen */}
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+				<Stack.Screen
+					name='SplashScreenSec'
+					component={SplashScreenSec}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='AuthSelection'
+					component={AuthSelection}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='WelcomScren'
+					component={WelcomeScreen}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='LoginScreen'
+					component={LoginScreen}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='RegisterScreen'
+					component={RegisterScreen}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='OtpScreen'
+					component={OtpScreen}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='FailedScreen'
+					component={FailedScreen}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='SuccessScreen'
+					component={SuccessScreen}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='RegistrationSuccess'
+					component={RegistrationSuccess}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='ForgotPasswordScreen'
+					component={ForgotPasswordScreen}
+					options={{ headerShown: false }}
+				/>
+				{/*Ranking Screen */}
+				<Stack.Screen
+					name='RankingScreen'
+					component={RankingScreen}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='TopRankingScreen'
+					component={TopRankingScreen}
+					options={{ headerShown: false }}
+				/>
+				{/*Ranking Screen */}
+				<Stack.Screen
+					name='TargetScreen'
+					component={DashbordScreen}
+					options={{ headerShown: false }}
+				/>
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
 }

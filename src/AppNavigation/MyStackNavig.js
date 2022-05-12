@@ -22,6 +22,7 @@ import Profile from "../Views/Profile/Profile";
 import CreditScreen from "../Views/Profile/CreditScreen";
 import PersonalInfo from "../Views/Profile/PersonalInfo";
 import SCard from "../Views/Profile/SCard";
+import TransactionHistory from "../Views/Profile/TransactionHistory";
 
 import RankingScreen from "../Views/RankingSection/RankingScreen";
 import TopRankingScreen from "../Views/RankingSection/TopRankingScreen";
@@ -51,6 +52,11 @@ export default function MyStackNavig() {
         <Stack.Screen
           name="SCard"
           component={SCard}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TransactionHistory"
+          component={TransactionHistory}
           options={{ headerShown: false }}
         />
         {/*  Profile Screens */}

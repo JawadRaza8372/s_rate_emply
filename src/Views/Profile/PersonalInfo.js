@@ -16,7 +16,7 @@ import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
 import Header from "../../Components/CommonComponents/Header";
 
 const PersonalInfo = ({ navigation }) => {
-  const [Active, setActive] = useState(false);
+  const [Active, setActive] = useState(true);
   const [Edit, setEdit] = useState(false);
 
   return (

@@ -23,31 +23,15 @@ import CreditScreen from "../Views/Profile/CreditScreen";
 import PersonalInfo from "../Views/Profile/PersonalInfo";
 import SCard from "../Views/Profile/SCard";
 
-
 import RankingScreen from "../Views/RankingSection/RankingScreen";
 import TopRankingScreen from "../Views/RankingSection/TopRankingScreen";
 import DashbordScreen from "../Views/DashbordScreen/DashbordScreen";
-
 
 const Stack = createStackNavigator();
 export default function MyStackNavig() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-
-        <Stack.Screen
-          name="DashbordScreen"
-          component={DashbordScreen}
-          options={{ headerShown: false }}
-        />
-
-        <Stack.Screen
-          name="SplashScreen"
-          component={SplashScreen}
-          options={{ headerShown: false }}
-        />
-
-
         {/* Profile Screens */}
         <Stack.Screen
           name="Profile"
@@ -70,6 +54,12 @@ export default function MyStackNavig() {
           options={{ headerShown: false }}
         />
         {/*  Profile Screens */}
+
+        <Stack.Screen
+          name="DashbordScreen"
+          component={DashbordScreen}
+          options={{ headerShown: false }}
+        />
 
         <Stack.Screen
           name="SplashScreen"

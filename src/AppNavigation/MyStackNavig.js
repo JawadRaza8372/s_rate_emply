@@ -25,17 +25,28 @@ import RankingScreen from "../Views/RankingSection/RankingScreen";
 import TopRankingScreen from "../Views/RankingSection/TopRankingScreen";
 import DashbordScreen from "../Views/DashbordScreen/DashbordScreen";
 import MainDashbordScreen from "../Views/MainDashbordScreen/MainDashbordScreen";
+import EmailInboxScreen from "../Views/MainDashbordScreen/EmailInboxScreen";
+import CustomerEvolution from "../Views/MainDashbordScreen/CustomerEvolution";
 const Stack = createStackNavigator();
 export default function MyStackNavig() {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
 				<Stack.Screen
+					name='CustomerEvolution'
+					component={CustomerEvolution}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='EmailInboxScreen'
+					component={EmailInboxScreen}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
 					name='DashbordScreen'
 					component={MainDashbordScreen}
 					options={{ headerShown: false }}
 				/>
-
 				<Stack.Screen
 					name='SplashScreen'
 					component={SplashScreen}

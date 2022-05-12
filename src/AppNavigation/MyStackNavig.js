@@ -23,6 +23,7 @@ import CreditScreen from "../Views/Profile/CreditScreen";
 import PersonalInfo from "../Views/Profile/PersonalInfo";
 import SCard from "../Views/Profile/SCard";
 import TransactionHistory from "../Views/Profile/TransactionHistory";
+import Consent from "../Views/Profile/Consent";
 
 import RankingScreen from "../Views/RankingSection/RankingScreen";
 import TopRankingScreen from "../Views/RankingSection/TopRankingScreen";
@@ -57,6 +58,11 @@ export default function MyStackNavig() {
         <Stack.Screen
           name="TransactionHistory"
           component={TransactionHistory}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Consent"
+          component={Consent}
           options={{ headerShown: false }}
         />
         {/*  Profile Screens */}

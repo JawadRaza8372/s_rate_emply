@@ -136,7 +136,12 @@ const Profile = ({ navigation }) => {
         </TouchableOpacity>
         {/* Strips 3 */}
         {/* Strips 4 */}
-        <TouchableOpacity style={styles.DStrip2}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Consent");
+          }}
+          style={styles.DStrip2}
+        >
           <View style={styles.RightContainer2}>
             <Image
               style={styles.ImgIcon}

@@ -15,16 +15,6 @@ import CustomModel from "./CustomModel";
 const CustomLoginUser = ({ istimer, title, myData, selectionFun }) => {
   const [showDrop, setshowDrop] = useState(false);
 
-  // const myData = [
-  //   { title: "jhon" },
-  //   { title: "jhonson" },
-  //   { title: "ujhon" },
-  //   { title: "kin jhon" },
-  //   { title: "benjem jhon" },
-  //   { title: "him jhon" },
-  //   { title: "hoy jhon" },
-  //   { title: "bore jhon" },
-  // ];
   return (
     <>
       <TouchableOpacity

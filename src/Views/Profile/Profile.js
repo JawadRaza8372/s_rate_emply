@@ -84,7 +84,12 @@ const Profile = ({ navigation }) => {
         </TouchableOpacity>
         {/* Strips 1 */}
         {/* Strips 2 */}
-        <TouchableOpacity style={styles.DStrip2}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("SCard");
+          }}
+          style={styles.DStrip2}
+        >
           <View style={styles.RightContainer2}>
             <Image
               style={styles.ImgIcon}

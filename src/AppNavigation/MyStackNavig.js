@@ -15,40 +15,40 @@ import RegistrationSuccess from "../Views/AuthSection/RegistrationSuccess";
 import ForgotPasswordScreen from "../Views/AuthSection/ForgotPasswordScreen";
 import WelcomeScreen from "../Views/AuthSection/WelcomeScreen";
 
-// dashboard screens
+// Dashboard screens
 
 // Profile Screens
 import Profile from "../Views/Profile/Profile";
 import CreditScreen from "../Views/Profile/CreditScreen";
 import PersonalInfo from "../Views/Profile/PersonalInfo";
 import SCard from "../Views/Profile/SCard";
+import TransactionHistory from "../Views/Profile/TransactionHistory";
+import Consent from "../Views/Profile/Consent";
 
-
+// Ranking Screens
 import RankingScreen from "../Views/RankingSection/RankingScreen";
 import TopRankingScreen from "../Views/RankingSection/TopRankingScreen";
 import DashbordScreen from "../Views/DashbordScreen/DashbordScreen";
 
+// Reward Screens
+import Reward from "../Views/Rewards/Reward";
 
 const Stack = createStackNavigator();
 export default function MyStackNavig() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-
+        {/* Reward Screens */}
         <Stack.Screen
-          name="DashbordScreen"
-          component={DashbordScreen}
+          name="Reward"
+          component={Reward}
           options={{ headerShown: false }}
         />
 
-        <Stack.Screen
-          name="SplashScreen"
-          component={SplashScreen}
-          options={{ headerShown: false }}
-        />
-
+        {/* Reward Screens */}
 
         {/* Profile Screens */}
+
         <Stack.Screen
           name="Profile"
           component={Profile}
@@ -69,7 +69,23 @@ export default function MyStackNavig() {
           component={SCard}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="TransactionHistory"
+          component={TransactionHistory}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Consent"
+          component={Consent}
+          options={{ headerShown: false }}
+        />
         {/*  Profile Screens */}
+
+        <Stack.Screen
+          name="DashbordScreen"
+          component={DashbordScreen}
+          options={{ headerShown: false }}
+        />
 
         <Stack.Screen
           name="SplashScreen"

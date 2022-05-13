@@ -84,7 +84,12 @@ const Profile = ({ navigation }) => {
         </TouchableOpacity>
         {/* Strips 1 */}
         {/* Strips 2 */}
-        <TouchableOpacity style={styles.DStrip2}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("SCard");
+          }}
+          style={styles.DStrip2}
+        >
           <View style={styles.RightContainer2}>
             <Image
               style={styles.ImgIcon}
@@ -105,7 +110,12 @@ const Profile = ({ navigation }) => {
         </TouchableOpacity>
         {/* Strips 2 */}
         {/* Strips 3 */}
-        <TouchableOpacity style={styles.DStrip2}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("TransactionHistory");
+          }}
+          style={styles.DStrip2}
+        >
           <View style={styles.RightContainer2}>
             <Image
               style={styles.ImgIcon}
@@ -126,7 +136,12 @@ const Profile = ({ navigation }) => {
         </TouchableOpacity>
         {/* Strips 3 */}
         {/* Strips 4 */}
-        <TouchableOpacity style={styles.DStrip2}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Consent");
+          }}
+          style={styles.DStrip2}
+        >
           <View style={styles.RightContainer2}>
             <Image
               style={styles.ImgIcon}

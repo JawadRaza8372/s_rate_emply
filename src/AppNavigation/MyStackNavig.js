@@ -15,15 +15,21 @@ import RegistrationSuccess from "../Views/AuthSection/RegistrationSuccess";
 import ForgotPasswordScreen from "../Views/AuthSection/ForgotPasswordScreen";
 import WelcomeScreen from "../Views/AuthSection/WelcomeScreen";
 
-// dashboard screens
+// Dashboard screens
 
 // Profile Screens
 import Profile from "../Views/Profile/Profile";
 import CreditScreen from "../Views/Profile/CreditScreen";
 import PersonalInfo from "../Views/Profile/PersonalInfo";
+import SCard from "../Views/Profile/SCard";
+import TransactionHistory from "../Views/Profile/TransactionHistory";
+import Consent from "../Views/Profile/Consent";
+
+// Ranking Screens
 import RankingScreen from "../Views/RankingSection/RankingScreen";
 import TopRankingScreen from "../Views/RankingSection/TopRankingScreen";
 import DashbordScreen from "../Views/DashbordScreen/DashbordScreen";
+
 import MainDashbordScreen from "../Views/MainDashbordScreen/MainDashbordScreen";
 import EmailInboxScreen from "../Views/MainDashbordScreen/EmailInboxScreen";
 import CustomerEvolution from "../Views/MainDashbordScreen/CustomerEvolution";
@@ -31,11 +37,55 @@ import ThnakNoteScreen from "../Views/MainDashbordScreen/ThnakNoteScreen";
 import ThankYouCardScreen from "../Views/MainDashbordScreen/ThankYouCardScreen";
 import EvolutionDetails from "../Views/MainDashbordScreen/EvolutionDetails";
 import ThankYouSentScrn from "../Views/MainDashbordScreen/ThankYouSentScrn";
+
+// Reward Screens
+import Reward from "../Views/Rewards/Reward";
+
 const Stack = createStackNavigator();
 export default function MyStackNavig() {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
+    <Stack.Screen
+          name="Reward"
+          component={Reward}
+          options={{ headerShown: false }}
+        />
+
+        {/* Reward Screens */}
+
+        {/* Profile Screens */}
+
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CreditScreen"
+          component={CreditScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PersonalInfo"
+          component={PersonalInfo}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SCard"
+          component={SCard}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TransactionHistory"
+          component={TransactionHistory}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Consent"
+          component={Consent}
+          options={{ headerShown: false }}
+        />
 				<Stack.Screen
 					name='ThankYouSent'
 					component={ThankYouSentScrn}
@@ -165,4 +215,3 @@ export default function MyStackNavig() {
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
-}

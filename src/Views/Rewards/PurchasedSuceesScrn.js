@@ -4,28 +4,29 @@ import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
 import CustomAuthBtn from "../../Components/AuthComponents/CustomAuthBtn";
 import { secColor } from "../../AppColors";
 import { w, h } from "react-native-responsiveness";
-const FailedScreen = ({ navigation }) => {
-	const mainmsg = "Something went\nwrong";
+const PurchasedSuceesScren = () => {
 	return (
 		<SafeAreaComp>
 			<View style={styles.maindiv}>
 				<Image
-					source={require("../../../assets/error.png")}
+					source={require("../../../assets/success.png")}
 					style={styles.imgShow}
 				/>
-				<Text style={styles.maintxt}>{mainmsg}</Text>
-				<Text style={styles.desctxt}>Can you please try again?</Text>
+				<Text style={styles.maintxt}>Purchase successful</Text>
+				<Text style={styles.desctxt}>
+					You can find the reward in the Purchased tab.
+				</Text>
 				<CustomAuthBtn
 					bgColor={secColor}
 					title='Ok'
-					onClick={() => navigation.navigate("MainDashbord")}
+					onClick={() => alert("Ok")}
 				/>
 			</View>
 		</SafeAreaComp>
 	);
 };
 
-export default FailedScreen;
+export default PurchasedSuceesScren;
 
 const styles = StyleSheet.create({
 	imgShow: {

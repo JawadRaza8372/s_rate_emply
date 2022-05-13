@@ -6,7 +6,7 @@ import { w, h } from "react-native-responsiveness";
 import { mainColor } from "../../AppColors";
 import MailCard from "../../Components/MainDashbordComp/MailCard";
 import FilterBox from "../../Components/MainDashbordComp/FilterBox";
-const EmailInboxScreen = () => {
+const EmailInboxScreen = ({ navigation }) => {
 	const emaildata = [
 		{
 			title: "New Evaluation",

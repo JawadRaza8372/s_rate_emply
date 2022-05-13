@@ -18,7 +18,7 @@ import CustomAuthBtn from "../../Components/AuthComponents/CustomAuthBtn";
 import Carousel from "react-native-snap-carousel";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-const MainDashbordScreen = () => {
+const MainDashbordScreen = ({ navigation }) => {
 	const c = useRef(null);
 	const roles = [
 		{ title: "Waiter - tress" },
@@ -66,9 +66,11 @@ const MainDashbordScreen = () => {
 							<View style={styles.topNavBar}>
 								<View style={styles.btndiv} />
 								<Text style={styles.comphead}>S-Rate</Text>
-								<View style={styles.btndiv}>
+								<TouchableOpacity
+									onPress={() => navigation.navigate("EmailInboxScreen")}
+									style={styles.btndiv}>
 									<Ionicons name='mail' size={h("4%")} color={screenBg} />
-								</View>
+								</TouchableOpacity>
 							</View>
 							<View style={styles.avtarContainer}>
 								<View
@@ -161,7 +163,7 @@ const MainDashbordScreen = () => {
 						</View>
 						<CustomAuthBtn
 							title={"View all evaluations "}
-							onClick={() => console.log("done")}
+							onClick={() => navigation.navigate("CustomerEvolution")}
 						/>
 					</View>
 				</ScrollView>
@@ -247,7 +249,8 @@ export default MainDashbordScreen;
 const styles = StyleSheet.create({
 	maindiv: {
 		width: w("100%"),
-		height: h("100%"),
+		height: "100%",
+		paddingBottom: h("5%"),
 	},
 	headerdiv: {
 		width: w("100%"),

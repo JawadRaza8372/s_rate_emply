@@ -40,87 +40,15 @@ import ThankYouSentScrn from "../Views/MainDashbordScreen/ThankYouSentScrn";
 
 // Reward Screens
 import Reward from "../Views/Rewards/Reward";
+import RewardDetailScreen from "../Views/Rewards/RewardDetailScreen";
+import PurchasedSuceesScren from "../Views/Rewards/PurchasedSuceesScrn";
+import CustomBottomTab from "./CustomBottomTab";
 
 const Stack = createStackNavigator();
-export default function MyStackNavig() {
+const MyStackNavig = () => {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
-    <Stack.Screen
-          name="Reward"
-          component={Reward}
-          options={{ headerShown: false }}
-        />
-
-        {/* Reward Screens */}
-
-        {/* Profile Screens */}
-
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="CreditScreen"
-          component={CreditScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="PersonalInfo"
-          component={PersonalInfo}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="SCard"
-          component={SCard}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="TransactionHistory"
-          component={TransactionHistory}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Consent"
-          component={Consent}
-          options={{ headerShown: false }}
-        />
-				<Stack.Screen
-					name='ThankYouSent'
-					component={ThankYouSentScrn}
-					options={{ headerShown: false }}
-				/>
-				<Stack.Screen
-					name='EvolutionDetailScreen'
-					component={EvolutionDetails}
-					options={{ headerShown: false }}
-				/>
-				<Stack.Screen
-					name='ThankCardScreen'
-					component={ThankYouCardScreen}
-					options={{ headerShown: false }}
-				/>
-				<Stack.Screen
-					name='ThankNoteScreen'
-					component={ThnakNoteScreen}
-					options={{ headerShown: false }}
-				/>
-				<Stack.Screen
-					name='CustomerEvolution'
-					component={CustomerEvolution}
-					options={{ headerShown: false }}
-				/>
-				<Stack.Screen
-					name='EmailInboxScreen'
-					component={EmailInboxScreen}
-					options={{ headerShown: false }}
-				/>
-				<Stack.Screen
-					name='DashbordScreen'
-					component={MainDashbordScreen}
-					options={{ headerShown: false }}
-				/>
 				<Stack.Screen
 					name='SplashScreen'
 					component={SplashScreen}
@@ -128,21 +56,7 @@ export default function MyStackNavig() {
 				/>
 
 				{/* Profile Screens */}
-				<Stack.Screen
-					name='Profile'
-					component={Profile}
-					options={{ headerShown: false }}
-				/>
-				<Stack.Screen
-					name='CreditScreen'
-					component={CreditScreen}
-					options={{ headerShown: false }}
-				/>
-				<Stack.Screen
-					name='PersonalInfo'
-					component={PersonalInfo}
-					options={{ headerShown: false }}
-				/>
+
 				{/*  Profile Screens */}
 
 				<Stack.Screen
@@ -191,16 +105,17 @@ export default function MyStackNavig() {
 					options={{ headerShown: false }}
 				/>
 				<Stack.Screen
+					name='MainDashbord'
+					component={CustomBottomTab}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
 					name='ForgotPasswordScreen'
 					component={ForgotPasswordScreen}
 					options={{ headerShown: false }}
 				/>
 				{/*Ranking Screen */}
-				<Stack.Screen
-					name='RankingScreen'
-					component={RankingScreen}
-					options={{ headerShown: false }}
-				/>
+
 				<Stack.Screen
 					name='TopRankingScreen'
 					component={TopRankingScreen}
@@ -208,10 +123,78 @@ export default function MyStackNavig() {
 				/>
 				{/*Ranking Screen */}
 				<Stack.Screen
-					name='TargetScreen'
-					component={DashbordScreen}
+					name='PurchaseSuccess'
+					component={PurchasedSuceesScren}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='CreditScreen'
+					component={CreditScreen}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='PersonalInfo'
+					component={PersonalInfo}
+					options={{ headerShown: false }}
+				/>
+
+				<Stack.Screen
+					name='RewardDetail'
+					component={RewardDetailScreen}
+					options={{ headerShown: false }}
+				/>
+
+				{/* Reward Screens */}
+
+				{/* Profile Screens */}
+
+				<Stack.Screen
+					name='SCard'
+					component={SCard}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='TransactionHistory'
+					component={TransactionHistory}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='Consent'
+					component={Consent}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='ThankYouSent'
+					component={ThankYouSentScrn}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='EvolutionDetailScreen'
+					component={EvolutionDetails}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='ThankCardScreen'
+					component={ThankYouCardScreen}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='ThankNoteScreen'
+					component={ThnakNoteScreen}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='CustomerEvolution'
+					component={CustomerEvolution}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='EmailInboxScreen'
+					component={EmailInboxScreen}
 					options={{ headerShown: false }}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
+};
+export default MyStackNavig;

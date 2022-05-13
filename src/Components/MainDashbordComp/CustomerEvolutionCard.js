@@ -12,7 +12,49 @@ const CustomerEvolutionCard = ({
 	credits,
 	subtitle,
 	time,
+	thankNote,
 }) => {
+	const creditsnotes = () => {
+		if (credits.length > 0) {
+			return (
+				<View style={styles.creditdiv}>
+					<FontAwesome5 name='money-bill-wave' size={24} color={secColor} />
+					<Text style={styles.credits}>{credits} Credits</Text>
+					{thankNote.length > 0 && (
+						<Image
+							source={
+								thankNote === "1"
+									? require("../../../assets/thank1.png")
+									: thankNote === "2"
+									? require("../../../assets/thank2.png")
+									: require("../../../assets/thank3.png")
+							}
+							style={styles.thankiumg}
+						/>
+					)}
+				</View>
+			);
+		} else if (credits.length <= 0 && thankNote.length > 0) {
+			return (
+				<View style={styles.creditdiv}>
+					{thankNote.length > 0 && (
+						<Image
+							source={
+								thankNote === "1"
+									? require("../../../assets/thank1.png")
+									: thankNote === "2"
+									? require("../../../assets/thank2.png")
+									: require("../../../assets/thank3.png")
+							}
+							style={styles.thankiumg}
+						/>
+					)}
+				</View>
+			);
+		} else {
+			return null;
+		}
+	};
 	return (
 		<View style={styles.maincarddiv}>
 			<View style={styles.imgdiv}>
@@ -31,16 +73,7 @@ const CustomerEvolutionCard = ({
 					<Text style={styles.title}>By {name}</Text>
 				</View>
 				{review.length > 0 && <Text style={styles.subtitle}>{review}</Text>}
-				{credits.length > 0 && (
-					<View style={styles.creditdiv}>
-						<FontAwesome5 name='money-bill-wave' size={24} color={secColor} />
-						<Text style={styles.credits}>{credits} Credits</Text>
-						<Image
-							source={require("../../../assets/thank1.png")}
-							style={styles.thankiumg}
-						/>
-					</View>
-				)}
+				{creditsnotes()}
 				<Text style={styles.subtitle}>{subtitle}</Text>
 			</View>
 		</View>

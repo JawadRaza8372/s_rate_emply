@@ -19,6 +19,7 @@ const CustomerEvolution = () => {
 			time: "Today, 12:30 pm",
 			subtitle: "Waiter, Tropical Restaurant",
 			rating: "4.5",
+			thankNote: "",
 		},
 		{
 			name: "Samentha Jones",
@@ -29,6 +30,7 @@ const CustomerEvolution = () => {
 			time: "Today, 12:30 pm",
 			subtitle: "Waiter, Tropical Restaurant",
 			rating: "4.3",
+			thankNote: "2",
 		},
 		{
 			name: "Albert Jones",
@@ -39,6 +41,18 @@ const CustomerEvolution = () => {
 			time: "Today, 12:30 pm",
 			subtitle: "Waiter, Tropical Restaurant",
 			rating: "4.2",
+			thankNote: "1",
+		},
+		{
+			name: "Smith Jones",
+			userimg:
+				"https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+			credits: "+10",
+			review: "",
+			time: "Today, 12:30 pm",
+			subtitle: "Waiter, Tropical Restaurant",
+			rating: "4.2",
+			thankNote: "3",
 		},
 	];
 	return (
@@ -62,6 +76,7 @@ const CustomerEvolution = () => {
 						credits={dat.credits}
 						subtitle={dat.subtitle}
 						time={dat.time}
+						thankNote={dat.thankNote}
 						key={index}
 					/>
 				))}
@@ -86,6 +101,7 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		textAlign: "center",
 		color: mainColor,
+		width: "90%",
 	},
 	tagwrap: {
 		width: w("95%"),

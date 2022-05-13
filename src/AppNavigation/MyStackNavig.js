@@ -27,11 +27,35 @@ import DashbordScreen from "../Views/DashbordScreen/DashbordScreen";
 import MainDashbordScreen from "../Views/MainDashbordScreen/MainDashbordScreen";
 import EmailInboxScreen from "../Views/MainDashbordScreen/EmailInboxScreen";
 import CustomerEvolution from "../Views/MainDashbordScreen/CustomerEvolution";
+import ThnakNoteScreen from "../Views/MainDashbordScreen/ThnakNoteScreen";
+import ThankYouCardScreen from "../Views/MainDashbordScreen/ThankYouCardScreen";
+import EvolutionDetails from "../Views/MainDashbordScreen/EvolutionDetails";
+import ThankYouSentScrn from "../Views/MainDashbordScreen/ThankYouSentScrn";
 const Stack = createStackNavigator();
 export default function MyStackNavig() {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
+				<Stack.Screen
+					name='ThankYouSent'
+					component={ThankYouSentScrn}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='EvolutionDetailScreen'
+					component={EvolutionDetails}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='ThankCardScreen'
+					component={ThankYouCardScreen}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='ThankNoteScreen'
+					component={ThnakNoteScreen}
+					options={{ headerShown: false }}
+				/>
 				<Stack.Screen
 					name='CustomerEvolution'
 					component={CustomerEvolution}

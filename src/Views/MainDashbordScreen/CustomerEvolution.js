@@ -1,4 +1,10 @@
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import {
+	StyleSheet,
+	Text,
+	View,
+	ScrollView,
+	TouchableOpacity,
+} from "react-native";
 import React from "react";
 import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
 import Header from "../../Components/CommonComponents/Header";
@@ -8,7 +14,7 @@ import FilterBox from "../../Components/MainDashbordComp/FilterBox";
 import CustomerEvolutionCard from "../../Components/MainDashbordComp/CustomerEvolutionCard";
 import FilterTag from "../../Components/MainDashbordComp/FilterTag";
 
-const CustomerEvolution = () => {
+const CustomerEvolution = ({ navigation }) => {
 	const data = [
 		{
 			name: "Kathrine Jones",
@@ -68,17 +74,20 @@ const CustomerEvolution = () => {
 			</View>
 			<ScrollView>
 				{data.map((dat, index) => (
-					<CustomerEvolutionCard
-						name={dat.name}
-						avtar={dat.userimg}
-						rating={dat.rating}
-						review={dat.review}
-						credits={dat.credits}
-						subtitle={dat.subtitle}
-						time={dat.time}
-						thankNote={dat.thankNote}
+					<TouchableOpacity
 						key={index}
-					/>
+						onPress={() => navigation.navigate("EvolutionDetailScreen")}>
+						<CustomerEvolutionCard
+							name={dat.name}
+							avtar={dat.userimg}
+							rating={dat.rating}
+							review={dat.review}
+							credits={dat.credits}
+							subtitle={dat.subtitle}
+							time={dat.time}
+							thankNote={dat.thankNote}
+						/>
+					</TouchableOpacity>
 				))}
 			</ScrollView>
 		</SafeAreaComp>

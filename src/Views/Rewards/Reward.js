@@ -16,7 +16,7 @@ import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
 import Header from "../../Components/CommonComponents/Header";
 import Card from "../../Components/RewardComponents/Card";
 
-const Reward = () => {
+const Reward = ({ navigation }) => {
 	const [Active, setActive] = useState(true);
 	const [Edit, setEdit] = useState(false);
 	const cardsarr = [
@@ -93,6 +93,7 @@ const Reward = () => {
 							imglink={dat.imglink}
 							credits={dat.credits}
 							alert={true}
+							onClick={() => navigation.navigate("RewardDetail")}
 						/>
 					))
 				) : (

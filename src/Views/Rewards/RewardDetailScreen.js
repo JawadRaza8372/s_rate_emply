@@ -5,7 +5,7 @@ import { w, h } from "react-native-responsiveness";
 import { mainColor, screenBg } from "../../AppColors";
 import Card from "../../Components/RewardComponents/Card";
 import CustomAuthBtn from "../../Components/AuthComponents/CustomAuthBtn";
-const RewardDetailScreen = () => {
+const RewardDetailScreen = ({ navigation }) => {
 	const cardsarr = [
 		{
 			title: "10€ Amazon Voucher",
@@ -34,7 +34,10 @@ const RewardDetailScreen = () => {
 					/>
 					<Text style={styles.pricecredit}>100 Credits</Text>
 					<Text style={styles.mycredits}>You have 100 Credits</Text>
-					<CustomAuthBtn title={"Purchase"} onClick={() => alert("done")} />
+					<CustomAuthBtn
+						title={"Purchase"}
+						onClick={() => navigation.navigate("PurchaseSuccess")}
+					/>
 					<Text style={styles.descript}>
 						THE ONLY PATENTED CHIN SUPPORT TRAVEL PILLOW THAT STOPS YOUR HEAD
 						FROM FALLING FORWARD - The innovative overlap design wraps gently

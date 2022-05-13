@@ -4,7 +4,7 @@ import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
 import ThankCard from "../../Components/MainDashbordComp/ThankCard";
 import { w, h } from "react-native-responsiveness";
 import { screenBg } from "../../AppColors";
-const ThankYouCardScreen = () => {
+const ThankYouCardScreen = ({ navigation }) => {
 	return (
 		<SafeAreaComp>
 			<View style={styles.maindiv}>
@@ -12,7 +12,7 @@ const ThankYouCardScreen = () => {
 					imglink={require("../../../assets/thank2.png")}
 					text={"For your amazing evaluation!"}
 					isHiden={true}
-					onClick={() => alert("done")}
+					onClick={() => navigation.goBack()}
 				/>
 			</View>
 		</SafeAreaComp>

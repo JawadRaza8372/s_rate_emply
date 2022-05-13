@@ -4,7 +4,7 @@ import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
 import CustomAuthBtn from "../../Components/AuthComponents/CustomAuthBtn";
 import { secColor } from "../../AppColors";
 import { w, h } from "react-native-responsiveness";
-const ThankYouSentScrn = () => {
+const ThankYouSentScrn = ({ navigation }) => {
 	return (
 		<SafeAreaComp>
 			<View style={styles.maindiv}>
@@ -17,7 +17,7 @@ const ThankYouSentScrn = () => {
 				<CustomAuthBtn
 					bgColor={secColor}
 					title='Ok'
-					onClick={() => alert("Ok")}
+					onClick={() => navigation.navigate("ThankCardScreen")}
 				/>
 			</View>
 		</SafeAreaComp>

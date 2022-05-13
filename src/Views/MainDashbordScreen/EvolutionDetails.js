@@ -8,7 +8,7 @@ import TrueFalseQuestion from "../../Components/MainDashbordComp/TrueFalseQuesti
 import { screenBg, secColor } from "../../AppColors";
 import CustomAuthBtn from "../../Components/AuthComponents/CustomAuthBtn";
 import { FontAwesome5 } from "@expo/vector-icons";
-const EvolutionDetails = () => {
+const EvolutionDetails = ({ navigation }) => {
 	const skillsQuestion = [
 		{ question: "How EFFICIENT was the employee:", selectedValue: "happy" },
 		{ question: "How QUICK was the employee:", selectedValue: "very happy" },
@@ -35,7 +35,7 @@ const EvolutionDetails = () => {
 	];
 	return (
 		<SafeAreaComp>
-			<Header />
+			<Header onPress={() => navigation.goBack()} />
 			<ScrollView>
 				<View style={styles.rowcont}>
 					<Image
@@ -61,7 +61,7 @@ const EvolutionDetails = () => {
 
 				<CustomAuthBtn
 					title={"Send Thank you note"}
-					onClick={() => console.log("send")}
+					onClick={() => navigation.navigate("ThankNoteScreen")}
 				/>
 				<View style={styles.thankdiv}>
 					<Image

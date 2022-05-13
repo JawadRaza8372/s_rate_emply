@@ -6,7 +6,7 @@ import { w, h } from "react-native-responsiveness";
 import { mainColor } from "../../AppColors";
 import ThankCard from "../../Components/MainDashbordComp/ThankCard";
 import CustomAuthBtn from "../../Components/AuthComponents/CustomAuthBtn";
-const ThnakNoteScreen = () => {
+const ThnakNoteScreen = ({ navigation }) => {
 	const [isActiveCard, setisActiveCard] = useState(-1);
 	const thanksdata = [
 		{
@@ -51,7 +51,10 @@ const ThnakNoteScreen = () => {
 					/>
 				))}
 			</ScrollView>
-			<CustomAuthBtn title={"Send"} onClick={() => console.log("done")} />
+			<CustomAuthBtn
+				title={"Send"}
+				onClick={() => navigation.navigate("ThankYouSent")}
+			/>
 			<View style={{ marginTop: h("2%") }} />
 		</SafeAreaComp>
 	);

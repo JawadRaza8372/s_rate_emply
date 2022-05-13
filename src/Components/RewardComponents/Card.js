@@ -10,18 +10,18 @@ import {
 import React, { useState } from "react";
 import { w, h } from "react-native-responsiveness";
 import { FontAwesome5, AntDesign } from "@expo/vector-icons";
-const Card = ({ imglink, credits, title, code, alert }) => {
+const Card = ({ imglink, credits, title, code, alert, onClick }) => {
 	return (
 		<View style={styles.cardcontainer}>
 			<Image source={imglink} style={styles.imgshoiw} />
 			<View style={styles.textCont}>
 				<Text style={styles.prizename}>{title}</Text>
 				{credits && (
-					<View style={styles.rowcont}>
+					<TouchableOpacity onPress={onClick} style={styles.rowcont}>
 						<FontAwesome5 name='shopping-basket' size={h("2%")} color='black' />
 						<Text style={styles.price}>{credits} Credits</Text>
 						<AntDesign name='arrowright' size={h("2.7%")} color='black' />
-					</View>
+					</TouchableOpacity>
 				)}
 				{code && <Text style={styles.price}>{code}</Text>}
 

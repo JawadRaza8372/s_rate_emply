@@ -7,6 +7,7 @@ import {
   ScrollView,
   TextInput,
   ImageBackground,
+  Switch,
 } from "react-native";
 import React, { useState } from "react";
 import { w, h } from "react-native-responsiveness";
@@ -17,6 +18,9 @@ import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
 import Header from "../../Components/CommonComponents/Header";
 
 const Consent = ({ navigation }) => {
+  const [isEnabled, setIsEnabled] = React.useState(false);
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+
   return (
     <SafeAreaComp>
       <Header
@@ -44,6 +48,21 @@ const Consent = ({ navigation }) => {
           Cards are provided by the hotel manager or can be purchased by you and
           customers are allowed to scan the card to identify you
         </Text>
+        <View style={styles.button}>
+          <Text style={isEnabled ? styles.AllowText : styles.AllowText2}>
+            Allow
+          </Text>
+          <Switch
+            trackColor={{ false: "#3D3D63", true: "#3D3D63" }}
+            thumbColor={isEnabled ? "#CFD4E0" : "#DABE9C"}
+            ios_backgroundColor="#3D3D63"
+            onValueChange={toggleSwitch}
+            value={isEnabled}
+          />
+          <Text style={isEnabled ? styles.AllowText2 : styles.AllowText}>
+            Do not allow
+          </Text>
+        </View>
       </View>
       {/* listing 1 */}
 
@@ -53,7 +72,24 @@ const Consent = ({ navigation }) => {
         <Text style={styles.Subheader2}>
           Customers can track you in the listing of the hotel’s employees
         </Text>
+
+        <View style={styles.button}>
+          <Text style={isEnabled ? styles.AllowText : styles.AllowText2}>
+            Allow
+          </Text>
+          <Switch
+            trackColor={{ false: "#3D3D63", true: "#3D3D63" }}
+            thumbColor={isEnabled ? "#CFD4E0" : "#DABE9C"}
+            ios_backgroundColor="#3D3D63"
+            onValueChange={toggleSwitch}
+            value={isEnabled}
+          />
+          <Text style={isEnabled ? styles.AllowText2 : styles.AllowText}>
+            Do not allow
+          </Text>
+        </View>
       </View>
+
       {/* listing 1 */}
     </SafeAreaComp>
   );
@@ -89,6 +125,26 @@ const styles = StyleSheet.create({
     color: mainColor,
     fontSize: h("2%"),
     marginTop: h("1%"),
+  },
+  button: {
+    width: "100%",
+    height: "30%",
+    // backgroundColor: "gold",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  AllowText: {
+    color: mainColor,
+    fontSize: h("2.2%"),
+    marginLeft: h("1%"),
+    marginRight: h("1%"),
+  },
+  AllowText2: {
+    color: mainColor,
+    fontSize: h("2.2%"),
+    fontWeight: "bold",
+    marginLeft: h("1%"),
+    marginRight: h("1%"),
   },
 });
 

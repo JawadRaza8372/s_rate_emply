@@ -43,6 +43,7 @@ import Reward from "../Views/Rewards/Reward";
 import RewardDetailScreen from "../Views/Rewards/RewardDetailScreen";
 import PurchasedSuceesScren from "../Views/Rewards/PurchasedSuceesScrn";
 import CustomBottomTab from "./CustomBottomTab";
+import EvolutionScore from "../Views/MainDashbordScreen/EvolutionScore";
 
 const Stack = createStackNavigator();
 const MyStackNavig = () => {
@@ -191,6 +192,11 @@ const MyStackNavig = () => {
 				<Stack.Screen
 					name='EmailInboxScreen'
 					component={EmailInboxScreen}
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name='EvolutionScore'
+					component={EvolutionScore}
 					options={{ headerShown: false }}
 				/>
 			</Stack.Navigator>

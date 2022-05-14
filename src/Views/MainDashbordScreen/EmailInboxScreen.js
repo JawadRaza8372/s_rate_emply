@@ -1,4 +1,10 @@
-import { StyleSheet, ScrollView, Text, View } from "react-native";
+import {
+	TouchableOpacity,
+	StyleSheet,
+	ScrollView,
+	Text,
+	View,
+} from "react-native";
 import React from "react";
 import SafeAreaComp from "../../Components/CommonComponents/SafeAreaComp";
 import Header from "../../Components/CommonComponents/Header";
@@ -6,6 +12,7 @@ import { w, h } from "react-native-responsiveness";
 import { mainColor } from "../../AppColors";
 import MailCard from "../../Components/MainDashbordComp/MailCard";
 import FilterBox from "../../Components/MainDashbordComp/FilterBox";
+
 const EmailInboxScreen = ({ navigation }) => {
 	const emaildata = [
 		{
@@ -37,13 +44,16 @@ const EmailInboxScreen = ({ navigation }) => {
 			<FilterBox />
 			<ScrollView>
 				{emaildata.map((dat, index) => (
-					<MailCard
+					<TouchableOpacity
 						key={index}
-						time={dat.time}
-						title={dat.title}
-						subtitle={dat.subtitle}
-						imglink={dat.imglink}
-					/>
+						onPress={() => navigation.navigate("EvolutionScore")}>
+						<MailCard
+							time={dat.time}
+							title={dat.title}
+							subtitle={dat.subtitle}
+							imglink={dat.imglink}
+						/>
+					</TouchableOpacity>
 				))}
 			</ScrollView>
 		</SafeAreaComp>

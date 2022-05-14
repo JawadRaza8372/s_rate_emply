@@ -20,172 +20,203 @@ import FormPhoneInput from "../../Components/AuthComponents/Forms/FormPhoneInput
 import Header from "../../Components/CommonComponents/Header";
 import FormPolicyField from "../../Components/AuthComponents/Forms/FormPolicyField";
 import { KeyboardAwareScrollView } from "@codler/react-native-keyboard-aware-scroll-view";
+import axios from "axios";
+import {
+	srate_api_base_url,
+	srate_auth_base_url,
+} from "../../BreakPoints/Breakpoints";
+
 const RegisterScreen = ({ navigation }) => {
-  const finalmsg =
-    "Email and Nickname are unique and cannot be\nchanged. Your Nickname will appear to customers.";
-  const [value, setValue] = useState("");
-  const [formattedValue, setFormattedValue] = useState("");
-  const [valid, setValid] = useState(false);
-  const [checkbox, setcheckbox] = useState(false);
-  const [showmsg, setshowmsg] = useState(false);
-  const phoneInput = useRef();
+	const finalmsg =
+		"Email and Nickname are unique and cannot be\nchanged. Your Nickname will appear to customers.";
+	const [value, setValue] = useState("");
+	const [countryCode, setcountryCode] = useState("+30");
+	const [valid, setValid] = useState(false);
+	const [checkbox, setcheckbox] = useState(false);
+	const [showmsg, setshowmsg] = useState(false);
+	const phoneInput = useRef();
 
-  const validationSchema = Yup.object().shape({
-    firstname: Yup.string().required().label("First Name"),
-    lastname: Yup.string().required().label("Last Name"),
-    nickname: Yup.string().required().label("Nick Name"),
-    email: Yup.string().required().email().label("Email"),
-    phone: Yup.string().required().max(15).min(5).label("Phone Number"),
-    password: Yup.string().required().min(4).label("Password"),
-    repassword: Yup.string().required().min(4).label("Re-type Password"),
-  });
+	const handleCountryCode = (dat) => {
+		setcountryCode(dat);
+	};
+	const validationSchema = Yup.object().shape({
+		firstname: Yup.string().required().label("First Name"),
+		lastname: Yup.string().required().label("Last Name"),
+		nickname: Yup.string().required().label("Nick Name"),
+		email: Yup.string().required().email().label("Email"),
+		phone: Yup.string().required().max(15).min(5).label("Phone Number"),
+		password: Yup.string().required().min(4).label("Password"),
+		repassword: Yup.string().required().min(4).label("Re-type Password"),
+	});
 
-  let onSubmitFun = (values) => {
-    console.log(values);
-    if (values) {
-      if (checkbox === true) {
-        navigation.navigate("OtpScreen");
-      } else {
-        setshowmsg(true);
-      }
-    }
-  };
+	let onSubmitFun = async (values) => {
+		if (values) {
+			if (checkbox === true) {
+				if (values.password === values.repassword) {
+					// navigation.navigate("OtpScreen");
+					const data = {
+						username: values.email,
+						password: values.password,
+						email: values.email,
+						userAccountType: "local",
+						firstName: values.firstname,
+						lastName: values.lastname,
+						mobilePrefix: countryCode,
+						mobileNumber: values.phone,
+						nickname: values.nickname,
+					};
+					console.log(data);
+					try {
+						const res = await axios.post(
+							`${srate_api_base_url}/registration/employee`,
+							data
+						);
+						console.log("responce", res.data);
+					} catch (error) {
+						console.log("error", error);
+					}
+				} else {
+					alert("Please Enter Same Password");
+				}
+			} else {
+				setshowmsg(true);
+			}
+		}
+	};
 
-  return (
-    <SafeAreaComp>
-      <KeyboardAwareScrollView>
-        <View style={styles.registerScreen}>
-          <ScrollView
-            nestedScrollEnabled
-            contentContainerStyle={{ width: w("100%") }}
-          >
-            <View style={styles.headerContent}>
-              <Header onPress={() => navigation.goBack()} />
-              <Text style={styles.maineading}>Register</Text>
-            </View>
-            <Forms
-              initialValues={{
-                firstname: "",
-                lastname: "",
-                nickname: "",
-                email: "",
-                password: "",
-                repassword: "",
-              }}
-              onSubmit={onSubmitFun}
-              validationSchema={validationSchema}
-            >
-              <InputFieldForms
-                title="First Name*"
-                name="firstname"
-                placeholder={"Enter Your First Name"}
-              />
-              <View style={styles.seprator} />
-              <InputFieldForms
-                title="Last Name*"
-                name="lastname"
-                placeholder={"Enter Your Last Name"}
-              />
-              <View style={styles.seprator} />
+	return (
+		<SafeAreaComp>
+			<KeyboardAwareScrollView>
+				<View style={styles.registerScreen}>
+					<ScrollView
+						nestedScrollEnabled
+						contentContainerStyle={{ width: w("100%") }}>
+						<View style={styles.headerContent}>
+							<Header onPress={() => navigation.goBack()} />
+							<Text style={styles.maineading}>Register</Text>
+						</View>
+						<Forms
+							initialValues={{
+								firstname: "",
+								lastname: "",
+								nickname: "",
+								email: "",
+								password: "",
+								repassword: "",
+							}}
+							onSubmit={onSubmitFun}
+							validationSchema={validationSchema}>
+							<InputFieldForms
+								title='First Name*'
+								name='firstname'
+								placeholder={"Enter Your First Name"}
+							/>
+							<View style={styles.seprator} />
+							<InputFieldForms
+								title='Last Name*'
+								name='lastname'
+								placeholder={"Enter Your Last Name"}
+							/>
+							<View style={styles.seprator} />
 
-              <InputFieldForms
-                title="Nick Name*"
-                name="nickname"
-                placeholder={"Enter Your Nick Name"}
-              />
-              <View style={styles.seprator} />
+							<InputFieldForms
+								title='Nick Name*'
+								name='nickname'
+								placeholder={"Enter Your Nick Name"}
+							/>
+							<View style={styles.seprator} />
 
-              <InputFieldForms
-                title="Email*"
-                name="email"
-                placeholder={"Enter Your Email"}
-              />
-              <View style={styles.seprator} />
+							<InputFieldForms
+								title='Email*'
+								name='email'
+								placeholder={"Enter Your Email"}
+							/>
+							<View style={styles.seprator} />
 
-              <FormPhoneInput title="Email*" name="phone" />
+							<FormPhoneInput name='phone' countryCode={handleCountryCode} />
 
-              {/* <PhoneNumberField /> */}
+							{/* <PhoneNumberField /> */}
 
-              <View style={styles.seprator} />
+							<View style={styles.seprator} />
 
-              <PasswordInputFieldForm
-                title={"Password*"}
-                name="password"
-                placeholder={"Enter Your Password"}
-              />
-              <View style={styles.seprator} />
+							<PasswordInputFieldForm
+								title={"Password*"}
+								name='password'
+								placeholder={"Enter Your Password"}
+							/>
+							<View style={styles.seprator} />
 
-              <PasswordInputFieldForm
-                title={"Retype Password*"}
-                name="repassword"
-                placeholder={"Re-Enter Your Password"}
-              />
-              <View style={styles.seprator} />
-              <Text style={styles.mandTxt}>*Mandatory fields</Text>
-              <Text style={styles.mandtxtsub}>{finalmsg}</Text>
-              <FormPolicyField
-                onChange={() => setcheckbox(!checkbox)}
-                value={checkbox}
-                msg={showmsg}
-              />
-              <FormSubmitButton title={"Register"} />
-              <View style={styles.seprator} />
-            </Forms>
-          </ScrollView>
-        </View>
-      </KeyboardAwareScrollView>
-    </SafeAreaComp>
-  );
+							<PasswordInputFieldForm
+								title={"Retype Password*"}
+								name='repassword'
+								placeholder={"Re-Enter Your Password"}
+							/>
+							<View style={styles.seprator} />
+							<Text style={styles.mandTxt}>*Mandatory fields</Text>
+							<Text style={styles.mandtxtsub}>{finalmsg}</Text>
+							<FormPolicyField
+								onChange={() => setcheckbox(!checkbox)}
+								value={checkbox}
+								msg={showmsg}
+							/>
+							<FormSubmitButton title={"Register"} />
+							<View style={styles.seprator} />
+						</Forms>
+					</ScrollView>
+				</View>
+			</KeyboardAwareScrollView>
+		</SafeAreaComp>
+	);
 };
 
 export default RegisterScreen;
 
 const styles = StyleSheet.create({
-  registerScreen: {
-    width: w("100%"),
-    height: h("100%"),
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    flexDirection: "column",
-  },
-  headerContent: {
-    width: "100%",
-    height: h("13%"),
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    flexDirection: "column",
-  },
-  phonetxt: {
-    display: "flex",
-    alignItems: "flex-start",
-    justifyContent: "center",
-    width: w("88%"),
-    alignSelf: "center",
-  },
-  seprator: {
-    marginBottom: h("2%"),
-  },
-  maineading: {
-    fontSize: h("4%"),
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  titletxt: {
-    fontSize: h("1.7%"),
-    textTransform: "capitalize",
-  },
-  mandTxt: {
-    fontSize: h("1.9%"),
-    width: w("88%"),
-    alignSelf: "center",
-    marginTop: h("2.5%"),
-  },
-  mandtxtsub: {
-    fontSize: h("1.7%"),
-    width: w("87%"),
-    alignSelf: "center",
-    marginVertical: h("2%"),
-  },
+	registerScreen: {
+		width: w("100%"),
+		height: h("100%"),
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "space-evenly",
+		flexDirection: "column",
+	},
+	headerContent: {
+		width: "100%",
+		height: h("13%"),
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "space-evenly",
+		flexDirection: "column",
+	},
+	phonetxt: {
+		display: "flex",
+		alignItems: "flex-start",
+		justifyContent: "center",
+		width: w("88%"),
+		alignSelf: "center",
+	},
+	seprator: {
+		marginBottom: h("2%"),
+	},
+	maineading: {
+		fontSize: h("4%"),
+		fontWeight: "bold",
+		textAlign: "center",
+	},
+	titletxt: {
+		fontSize: h("1.7%"),
+		textTransform: "capitalize",
+	},
+	mandTxt: {
+		fontSize: h("1.9%"),
+		width: w("88%"),
+		alignSelf: "center",
+		marginTop: h("2.5%"),
+	},
+	mandtxtsub: {
+		fontSize: h("1.7%"),
+		width: w("87%"),
+		alignSelf: "center",
+		marginVertical: h("2%"),
+	},
 });
